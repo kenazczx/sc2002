@@ -5,6 +5,17 @@ This tag is the Stage 1 version: Regular customers, the three menu items, the Wa
 Chef and Cashier, the full turn sequence, and both endings. It contains no Stage 2 or
 Stage 3 feature.
 
+## Team
+
+**Lab:** SCMD | **Team:** 3
+
+| Members |
+| --- |
+| CHAN ZHAO XIAN |
+| DAKSHINAMOORTHI THIYAGESWARAN |
+| STEPHANIE ANN KOH SHU HUI |
+| TIAN KAI YANG |
+
 ## Build and run
 
 From this directory, on any machine with a JDK 17 or newer. The same two commands work in
