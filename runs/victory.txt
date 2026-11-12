@@ -1,0 +1,49 @@
+# Stage 1 reproducible VICTORY run, base setting, default seed 3.
+#   java -cp out app.RestaurantRush --script runs/victory.txt
+#
+# One command per prompt, in the order the game asks. A staff member whose only legal
+# task is to wait is not asked at all, so those turns consume no line.
+#
+# Turn 1  Waiter
+seat 1
+# Turn 2  Waiter, then Chef
+order 1
+prep 1
+# Turn 3  Chef only (the Waiter has nothing legal to do)
+prep 1
+# Turn 4  Waiter: the Pasta became READY on turn 3, so it can be served now
+serve 1
+# Turn 5  Waiter
+seat 2
+# Turn 6  Waiter, then Chef.  C1 pays $18.00 with satisfaction 76: Section 3.3 exactly.
+order 2
+prep 2
+# Turn 7  Waiter
+serve 2
+# Turn 8  Waiter
+seat 3
+# Turn 9  Waiter, then Chef
+order 3
+prep 3
+# Turn 10 Waiter
+serve 3
+# Turn 11 Waiter
+seat 4
+# Turn 12 Waiter, then Chef
+order 4
+prep 4
+# Turn 13 Waiter, then Chef.  Seating C5 now beats serving C4: C5 cannot pay unless
+#         the order is taken by turn 14, while C4 can still be served on turn 15.
+seat 5
+prep 4
+# Turn 14 Waiter, then Chef
+order 5
+prep 5
+# Turn 15 Waiter, then Chef
+serve 4
+prep 5
+# Turn 16 Waiter
+serve 5
+# Turn 18 Waiter.  C6 arrived on turn 16 and cannot finish paying, so the task is
+#         spent on nothing rather than on blocking a table (Section 3.4).
+wait
