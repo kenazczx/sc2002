@@ -43,8 +43,10 @@ public class RestaurantRush {
                 try {
                     seed = Long.parseLong(args[++i]);
                 } catch (NumberFormatException notANumber) {
-                    System.out.println("Ignoring --seed: \"" + args[i] + "\" is not a number.");
-                }
+                    System.out.println("Invalid seed: expected an integer, but got \""
+                            + args[i] + "\".");
+                    return;                
+                    }
             } else if (args[i].equals("--script") && i + 1 < args.length) {
                 scriptPath = args[++i];
             } else {
