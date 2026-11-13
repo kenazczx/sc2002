@@ -26,6 +26,9 @@ public abstract class Customer {
     private int readyToPayAtTurn = -1;
 
     protected Customer(int id, String name, int arrivalTurn, int tasteIndex) {
+        if (tasteIndex < 0) {
+            throw new IllegalArgumentException("tasteIndex must not be negative: " + tasteIndex);
+        }
         this.id = id;
         this.name = name;
         this.arrivalTurn = arrivalTurn;
@@ -46,6 +49,9 @@ public abstract class Customer {
 
     public MenuItem chooseFrom(Menu menu) {
         List<MenuItem> choices = menu.getOrderableItems();
+        if (choices.isEmpty()) {
+            throw new IllegalStateException("The menu has no dishes, so " + name + " cannot order");
+        }
         return choices.get(tasteIndex % choices.size());
     }
 
