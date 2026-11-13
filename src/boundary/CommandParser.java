@@ -43,6 +43,9 @@ public final class CommandParser {
         } catch (NumberFormatException notANumber) {
             return null;
         }
+        if (target <= 0) {
+            return null;
+        }
         switch (verb) {
             case "seat":
             case "s":
