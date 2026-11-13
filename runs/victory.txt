@@ -1,49 +1,34 @@
-# Stage 1 reproducible VICTORY run, base setting, default seed 3.
+# Stage 2 reproducible VICTORY run, base setting, default seed 3.
 #   java -cp out app.RestaurantRush --script runs/victory.txt
 #
-# One command per prompt, in the order the game asks. A staff member whose only legal
-# task is to wait is not asked at all, so those turns consume no line.
+# Line-up: C1 Regular, C2 Critic, C3 Regular, C4 VIP, C5 Regular, C6 Regular.
+# This line maximises the number of paying customers: five pay, for $79.20.
+# It deliberately gives up the Critic's favourable review, because serving the
+# Critic within three turns would need the Waiter on turns 4 and 5, which holds
+# C1's table until turn 8 and costs the fifth payment. See runs/critic-first.txt.
 #
-# Turn 1  Waiter
-seat 1
-# Turn 2  Waiter, then Chef
-order 1
-prep 1
-# Turn 3  Chef only (the Waiter has nothing legal to do)
-prep 1
-# Turn 4  Waiter: the Pasta became READY on turn 3, so it can be served now
-serve 1
-# Turn 5  Waiter
-seat 2
-# Turn 6  Waiter, then Chef.  C1 pays $18.00 with satisfaction 76: Section 3.3 exactly.
-order 2
-prep 2
-# Turn 7  Waiter
-serve 2
-# Turn 8  Waiter
-seat 3
-# Turn 9  Waiter, then Chef
-order 3
-prep 3
-# Turn 10 Waiter
-serve 3
-# Turn 11 Waiter
-seat 4
-# Turn 12 Waiter, then Chef
-order 4
-prep 4
-# Turn 13 Waiter, then Chef.  Seating C5 now beats serving C4: C5 cannot pay unless
-#         the order is taken by turn 14, while C4 can still be served on turn 15.
-seat 5
-prep 4
-# Turn 14 Waiter, then Chef
-order 5
-prep 5
-# Turn 15 Waiter, then Chef
-serve 4
-prep 5
-# Turn 16 Waiter
-serve 5
-# Turn 18 Waiter.  C6 arrived on turn 16 and cannot finish paying, so the task is
-#         spent on nothing rather than on blocking a table (Section 3.4).
-wait
+seat 1          # T1  W
+order 1         # T2  W   C1 chooses Pasta, two preparation units
+prep 1          # T2  C
+prep 1          # T3  C   READY at the end of turn 3
+serve 1         # T4  W
+seat 2          # T5  W   the Critic has already lost 12
+order 2         # T6  W   a Critic always orders the most demanding dish
+prep 2          # T6  C
+seat 3          # T7  W
+prep 2          # T7  C
+serve 2         # T8  W   served four turns after arrival, so the review is unfavourable
+order 3         # T9  W
+prep 3          # T9  C
+serve 3         # T10 W   no table is free yet, so the VIP cannot be seated this turn
+seat 4          # T11 W
+order 4         # T12 W   VIP pays 90%: $18.00 becomes $16.20
+prep 4          # T12 C
+seat 5          # T13 W   seating C5 now is what makes the fifth payment possible
+prep 4          # T13 C
+order 5         # T14 W
+prep 5          # T14 C
+serve 4         # T15 W
+prep 5          # T15 C
+serve 5         # T16 W
+wait            # T18 W   C6 arrived on turn 16 and cannot finish paying

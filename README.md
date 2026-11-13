@@ -1,20 +1,17 @@
-# Restaurant Rush - Stage 1: basic restaurant operation
+# Restaurant Rush - Stage 2: VIP and Critic customers
 
 SC2002 Object-Oriented Design and Programming group assignment.
-This tag is the Stage 1 version: Regular customers, the three menu items, the Waiter,
-Chef and Cashier, the full turn sequence, and both endings. It contains no Stage 2 or
-Stage 3 feature.
+This tag is the Stage 2 version: everything in Stage 1, plus VIP and Critic customers.
+It contains no Stage 3 feature.
 
-## Team
+The base line-up is C1 Regular, C2 Critic, C3 Regular, C4 VIP, C5 Regular, C6 Regular:
+still six arrivals, with two of the regulars replaced (Section 4.2).
 
-**Lab:** SCMD | **Team:** 3
-
-| Members |
-| --- |
-| CHAN ZHAO XIAN |
-| DAKSHINAMOORTHI THIYAGESWARAN |
-| STEPHANIE ANN KOH SHU HUI |
-| TIAN KAI YANG |
+| Customer | Loss per waiting turn | Bill | Special behaviour |
+| --- | --- | --- | --- |
+| Regular | 8 | full price | - |
+| VIP | 5 | 10% off | - |
+| Critic | 12 | full price | always orders the most demanding dish; the satisfaction recorded at payment swings by 10 points, up if the Critic was served within 3 turns of arriving and down otherwise |
 
 ## Build and run
 
@@ -53,25 +50,37 @@ order numbers do not line up with customer numbers. The floor listing shows both
 ## Reproducible runs
 
 ```bash
-java -cp out app.RestaurantRush --script runs/victory.txt   # VICTORY: 5 paid, $72.00, average 72.8
-java -cp out app.RestaurantRush --script runs/defeat.txt    # DEFEAT:  0 paid, 2 customers walk out
+java -cp out app.RestaurantRush --script runs/victory.txt        # VICTORY: 5 paid, $79.20, average 69.0
+java -cp out app.RestaurantRush --script runs/critic-first.txt   # VICTORY: 4 paid, $61.20, average 69.3
+java -cp out app.RestaurantRush --script runs/defeat.txt         # DEFEAT:  3 paid, $45.00, average 78.7
 ```
 
-`runs/victory.txt` also reproduces the worked example in Section 3.3 of the brief exactly:
-C1 is a Regular who orders Pasta, loses 8 satisfaction on turns 1, 2 and 3, is served on
-turn 4, finishes eating on turn 5 and pays $18.00 on turn 6 with satisfaction 76.
+The three runs are the evidence that the manager's choices matter.
+
+* `victory.txt` maximises the number of paying customers and accepts the Critic's
+  unfavourable review.
+* `critic-first.txt` differs in one decision, the Waiter's turn 4 task. Seating the Critic
+  instead of serving C1 is the only way to serve the Critic within three turns, so the
+  review swings from -10 to +10, but C1's table stays occupied until turn 8 and the fifth
+  customer never gets a table. Four pay instead of five and revenue falls by $18.00.
+* `defeat.txt` is a manager who looks busy and still loses: three customers are served
+  well, revenue reaches exactly the $45.00 target and average satisfaction is 78.7, but
+  the Critic is left in the queue, walks out at the end of turn 12, and only three
+  customers pay. All three targets have to be met.
 
 ## Class diagram
 
-`docs/class-diagram-stage-1.png` is the class diagram of exactly this code: all 32 classes,
+`docs/class-diagram-stage-2.png` is the class diagram of exactly this code: all 35 classes,
 with every member and every relationship checked against the compiled classes of this tag.
-It uses the class diagram notation of the Chapter 6 lecture slides: every field, constructor
-and method, with parameters written as `name: type` and initial values where the code sets
-them, `{abstract}` under the name of an abstract class, a boundary, control or entity
-stereotype icon on every class, a multiplicity and role name at the end of every
-association, and notes that point out encapsulation, polymorphism and composition.
-`docs/class-diagram-stage-1.drawio` is the editable version (open it in draw.io or at
-diagrams.net) and `docs/class-diagram-stage-1.svg` a scalable copy.
+It uses the class diagram notation of the Chapter 6 lecture slides, as the Stage 1 diagram
+does: every field, constructor and method, with parameters written as `name: type` and
+initial values where the code sets them, `{abstract}` under the name of an abstract class, a
+boundary, control or entity stereotype icon on every class, a multiplicity and role name at
+the end of every association, and notes that point out encapsulation, polymorphism and
+composition. The three classes Stage 2 added (`VIPCustomer`, `CriticCustomer` and
+`CustomerType`) have an orange border. `docs/class-diagram-stage-2.drawio` is the editable
+version (open it in draw.io or at diagrams.net) and `docs/class-diagram-stage-2.svg` a
+scalable copy.
 
 ## Development harnesses
 

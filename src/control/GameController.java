@@ -307,11 +307,21 @@ public class GameController {
             return;
         }
         Customer next = payable.get(0);
+        int heldSatisfaction = next.getSatisfaction();
         PaymentRecord record = cashier.collect(next, turn);
         scoreBoard.recordPayment(record);
         display.showInfo("Cashier collects " + Money.format(record.getAmountCents()) + " from "
-                + next + "; Table " + record.getTableNumber() + " is free; satisfaction "
-                + record.getSatisfaction() + " is recorded.");
+                + next + "; Table " + record.getTableNumber() + " is free; "
+                + describeRecordedSatisfaction(heldSatisfaction, record.getSatisfaction()) + ".");
+    }
+
+    private String describeRecordedSatisfaction(int held, int recorded) {
+        if (held == recorded) {
+            return "satisfaction " + recorded + " is recorded";
+        }
+        int swing = recorded - held;
+        return "satisfaction " + held + " with a review of " + (swing > 0 ? "+" : "") + swing
+                + " is recorded as " + recorded;
     }
 
     private void handleWaitingAndAbandonment(int turn) {

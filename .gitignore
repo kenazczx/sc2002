@@ -1,0 +1,8 @@
+out/
+bin/
+*.class
+.DS_Store
+# Eclipse project files
+.project
+.classpath
+.settings/

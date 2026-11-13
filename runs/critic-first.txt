@@ -1,0 +1,34 @@
+# Stage 2 VARIANT: the same seed, played to earn the Critic's favourable review.
+#   java -cp out app.RestaurantRush --script runs/critic-first.txt
+#
+# The only change from runs/victory.txt is the Waiter's turn 4 decision: seat the
+# Critic instead of serving C1. That is the only way to serve the Critic within
+# three turns, so the review swings from -10 to +10. The cost is that C1's table
+# stays occupied until turn 8, C3 cannot be seated until turn 9, and the fifth
+# customer never gets a table: four pay instead of five, and revenue falls from
+# $79.20 to $61.20. Still a victory, but a poorer one.
+#
+seat 1          # T1  W
+order 1         # T2  W
+prep 1          # T2  C
+prep 1          # T3  C
+seat 2          # T4  W   THE DECISIVE CHOICE: the Critic before C1's ready Pasta
+order 2         # T5  W
+prep 2          # T5  C
+serve 1         # T6  W
+prep 2          # T6  C
+serve 2         # T7  W   three turns after arrival: favourable review, +10
+seat 3          # T9  W
+order 3         # T10 W
+prep 3          # T10 C
+serve 3         # T11 W
+seat 4          # T12 W
+order 4         # T13 W
+prep 4          # T13 C
+seat 5          # T14 W   too late: C5 can no longer pay within 18 turns
+prep 4          # T14 C
+serve 4         # T15 W
+order 5         # T16 W
+prep 5          # T16 C
+prep 5          # T17 C   the Waiter has nothing legal to do this turn
+serve 5         # T18 W   served, but C5 can no longer reach the Cashier
