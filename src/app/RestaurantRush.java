@@ -34,7 +34,12 @@ public class RestaurantRush {
         String scriptPath = null;
 
         for (int i = 0; i < args.length; i++) {
-            if (args[i].equals("--seed") && i + 1 < args.length) {
+            if (args[i].equals("--seed")) {
+                if (i + 1 >= args.length) {
+                    System.out.println("Missing number after --seed."
+                            + " Usage: java app.RestaurantRush [--seed <number>] [--script <file>]");
+                    return;
+                }
                 try {
                     seed = Long.parseLong(args[++i]);
                 } catch (NumberFormatException notANumber) {
