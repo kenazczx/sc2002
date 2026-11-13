@@ -29,9 +29,12 @@ public final class CommandParser {
         }
         String verb = parts[0];
         if (verb.equals("wait") || verb.equals("w")) {
+            if (parts.length != 1) {
+                return null;
+            }
             return StaffCommand.waitTurn();
         }
-        if (parts.length < 2) {
+        if (parts.length != 2) {
             return null;
         }
         int target;
