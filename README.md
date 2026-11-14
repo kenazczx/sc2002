@@ -22,12 +22,12 @@ runs and class diagram.
 
 **Lab:** SCMD | **Team:** 3
 
-| Members |
-| --- |
-| CHAN ZHAO XIAN |
-| DAKSHINAMOORTHI THIYAGESWARAN |
-| STEPHANIE ANN KOH SHU HUI |
-| TIAN KAI YANG |
+| Members | Usernames |
+| --- | --- |
+| CHAN ZHAO XIAN | kenazczx | 
+| DAKSHINAMOORTHI THIYAGESWARAN | tugo7 |
+| STEPHANIE ANN KOH SHU HUI | stephlikescheese |
+| TIAN KAI YANG | tky300 |
 
 ## Build and run
 
