@@ -1,38 +1,32 @@
 package entity;
 
 /**
- * Entity: one dish on the menu.
+ * Entity: anything a customer can order.
  *
- * Holds its name, price in cents and preparation units, none of which change once the
- * menu is built.
+ * Abstract: a SingleDish stores its price and preparation units, while a ComboMeal
+ * works them out from its two parts, so a combo can be used wherever a dish can.
  */
-public class MenuItem {
+public abstract class MenuItem {
 
     private final String name;
-    private final int priceCents;
-    private final int prepUnits;
 
-    public MenuItem(String name, int priceCents, int prepUnits) {
+    protected MenuItem(String name) {
         this.name = name;
-        this.priceCents = priceCents;
-        this.prepUnits = prepUnits;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getPriceCents() {
-        return priceCents;
-    }
+    public abstract int getPriceCents();
 
-    public int getPrepUnits() {
-        return prepUnits;
-    }
+    public abstract int getPrepUnits();
+
+    public abstract int getPortions();
 
     @Override
     public String toString() {
-        return name + " " + Money.format(priceCents) + ", " + prepUnits
-                + (prepUnits == 1 ? " unit" : " units");
+        return getName() + " " + Money.format(getPriceCents()) + ", " + getPrepUnits()
+                + (getPrepUnits() == 1 ? " unit" : " units");
     }
 }

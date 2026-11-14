@@ -1,5 +1,6 @@
 package control;
 
+import entity.Appetite;
 import entity.CriticCustomer;
 import entity.Customer;
 import entity.CustomerType;
@@ -13,8 +14,8 @@ import java.util.Random;
  *
  * The only class that creates customers, and the only one that names a customer type:
  * the line-up says whether each arrival is a RegularCustomer, VIPCustomer or
- * CriticCustomer. Each customer's taste comes from a Random seeded with the game
- * seed, so the same seed always gives the same customers.
+ * CriticCustomer. Each customer's taste and appetite come from a Random seeded with
+ * the game seed, so the same seed always gives the same customers.
  */
 public class ArrivalSchedule {
 
@@ -22,6 +23,8 @@ public class ArrivalSchedule {
         CustomerType.REGULAR, CustomerType.CRITIC, CustomerType.REGULAR,
         CustomerType.VIP, CustomerType.REGULAR, CustomerType.REGULAR
     };
+
+    public static final int LARGE_APPETITE_IN = 3;
 
     private final int[] arrivalTurns;
     private final CustomerType[] lineUp;
@@ -45,18 +48,21 @@ public class ArrivalSchedule {
         }
         int id = nextCustomerId++;
         int tasteIndex = random.nextInt(1000);
-        return create(lineUp[index], id, "C" + id, turn, tasteIndex);
+        Appetite appetite = random.nextInt(LARGE_APPETITE_IN) == 0
+                ? Appetite.LARGE : Appetite.SMALL;
+        return create(lineUp[index], id, "C" + id, turn, tasteIndex, appetite);
     }
 
-    private Customer create(CustomerType type, int id, String name, int turn, int tasteIndex) {
+    private Customer create(CustomerType type, int id, String name, int turn, int tasteIndex,
+                            Appetite appetite) {
         switch (type) {
             case VIP:
-                return new VIPCustomer(id, name, turn, tasteIndex);
+                return new VIPCustomer(id, name, turn, tasteIndex, appetite);
             case CRITIC:
-                return new CriticCustomer(id, name, turn, tasteIndex);
+                return new CriticCustomer(id, name, turn, tasteIndex, appetite);
             case REGULAR:
             default:
-                return new RegularCustomer(id, name, turn, tasteIndex);
+                return new RegularCustomer(id, name, turn, tasteIndex, appetite);
         }
     }
 

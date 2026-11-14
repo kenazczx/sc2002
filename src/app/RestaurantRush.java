@@ -8,10 +8,13 @@ import control.GameConfig;
 import control.GameController;
 import entity.Cashier;
 import entity.Chef;
+import entity.ComboMeal;
+import entity.Host;
 import entity.Menu;
 import entity.MenuItem;
 import entity.Restaurant;
 import entity.ScoreBoard;
+import entity.SingleDish;
 import entity.Waiter;
 
 import java.io.IOException;
@@ -36,8 +39,8 @@ public class RestaurantRush {
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("--seed")) {
                 if (i + 1 >= args.length) {
-                    System.out.println("Missing number after --seed."
-                            + " Usage: java app.RestaurantRush [--seed <number>] [--script <file>]");
+                    System.out.println("Missing number after --seed. Usage: java app.RestaurantRush"
+                            + " [--seed <number>] [--script <file>]");
                     return;
                 }
                 try {
@@ -45,8 +48,8 @@ public class RestaurantRush {
                 } catch (NumberFormatException notANumber) {
                     System.out.println("Invalid seed: expected an integer, but got \""
                             + args[i] + "\".");
-                    return;                
-                    }
+                    return;
+                }
             } else if (args[i].equals("--script") && i + 1 < args.length) {
                 scriptPath = args[++i];
             } else {
@@ -60,7 +63,7 @@ public class RestaurantRush {
 
         Menu menu = buildMenu();
         Restaurant restaurant = new Restaurant(config.getTableCount(), menu,
-                new Waiter(), new Chef(), new Cashier());
+                new Host(), new Waiter(), new Chef(), new Cashier());
         ScoreBoard scoreBoard = new ScoreBoard();
         ArrivalSchedule schedule = new ArrivalSchedule(config.getArrivalTurns(), seed);
 
@@ -80,10 +83,17 @@ public class RestaurantRush {
     }
 
     private static Menu buildMenu() {
+        MenuItem salad = new SingleDish("Salad", 900, 1);
+        MenuItem burger = new SingleDish("Burger", 1500, 1);
+        MenuItem pasta = new SingleDish("Pasta", 1800, 2);
+
         Menu menu = new Menu();
-        menu.add(new MenuItem("Salad", 900, 1));
-        menu.add(new MenuItem("Burger", 1500, 1));
-        menu.add(new MenuItem("Pasta", 1800, 2));
+        menu.add(salad);
+        menu.add(burger);
+        menu.add(pasta);
+        menu.add(new ComboMeal(salad, burger));
+        menu.add(new ComboMeal(salad, pasta));
+        menu.add(new ComboMeal(burger, pasta));
         return menu;
     }
 }

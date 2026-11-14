@@ -5,7 +5,7 @@ package entity;
  *
  * Seats customers, takes orders and serves ready dishes, one task per turn.
  */
-public class Waiter extends StaffMember {
+public class Waiter extends StaffMember implements SeatingStaff {
 
     public static final int TASKS_PER_TURN = 1;
 
@@ -13,6 +13,7 @@ public class Waiter extends StaffMember {
         super("Waiter", TASKS_PER_TURN);
     }
 
+    @Override
     public void seat(Customer customer, Table table) {
         customer.seatAt(table);
         consumeTask();

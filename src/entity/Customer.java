@@ -6,7 +6,8 @@ import java.util.List;
  * Entity: a customer, from arrival until they pay or walk out.
  *
  * Abstract: each subclass sets how much satisfaction it loses per waiting turn. Its
- * state changes only through methods that refuse an illegal step.
+ * appetite decides whether it orders a combo or a single dish. Its state changes only
+ * through methods that refuse an illegal step.
  */
 public abstract class Customer {
 
@@ -17,6 +18,7 @@ public abstract class Customer {
     private final String name;
     private final int arrivalTurn;
     private final int tasteIndex;
+    private final Appetite appetite;
 
     private int satisfaction = MAX_SATISFACTION;
     private CustomerState state = CustomerState.WAITING;
@@ -25,7 +27,7 @@ public abstract class Customer {
     private int servedAtTurn = -1;
     private int readyToPayAtTurn = -1;
 
-    protected Customer(int id, String name, int arrivalTurn, int tasteIndex) {
+    protected Customer(int id, String name, int arrivalTurn, int tasteIndex, Appetite appetite) {
         if (tasteIndex < 0) {
             throw new IllegalArgumentException("tasteIndex must not be negative: " + tasteIndex);
         }
@@ -33,6 +35,7 @@ public abstract class Customer {
         this.name = name;
         this.arrivalTurn = arrivalTurn;
         this.tasteIndex = tasteIndex;
+        this.appetite = appetite;
     }
 
     public abstract int getSatisfactionLossPerWaitingTurn();
@@ -48,7 +51,7 @@ public abstract class Customer {
     }
 
     public MenuItem chooseFrom(Menu menu) {
-        List<MenuItem> choices = menu.getOrderableItems();
+        List<MenuItem> choices = menu.itemsFor(appetite);
         if (choices.isEmpty()) {
             throw new IllegalStateException("The menu has no dishes, so " + name + " cannot order");
         }
@@ -166,6 +169,10 @@ public abstract class Customer {
 
     public int getArrivalTurn() {
         return arrivalTurn;
+    }
+
+    public Appetite getAppetite() {
+        return appetite;
     }
 
     public int getSatisfaction() {

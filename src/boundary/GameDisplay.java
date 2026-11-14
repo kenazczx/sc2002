@@ -1,6 +1,7 @@
 package boundary;
 
 import entity.GameResult;
+import entity.Promotion;
 
 /**
  * Boundary interface: everything the game shows the manager.
@@ -12,7 +13,7 @@ public interface GameDisplay {
 
     void showGameIntro();
 
-    void showTurnStart(int turn);
+    void showTurnStart(int turn, Promotion promotion);
 
     void showInfo(String message);
 

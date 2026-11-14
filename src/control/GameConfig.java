@@ -9,7 +9,8 @@ import entity.GameObjective;
  */
 public class GameConfig {
 
-    public static final long DEFAULT_SEED = 3L;
+    // seed 42 reproduces both worked examples in Section 4.3 of the brief
+    public static final long DEFAULT_SEED = 42L;
 
     private final int maxTurns;
     private final int tableCount;

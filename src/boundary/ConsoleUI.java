@@ -5,11 +5,13 @@ import control.StaffCommand;
 import entity.Customer;
 import entity.GameObjective;
 import entity.GameResult;
+import entity.HappyHourPromotion;
 import entity.Menu;
 import entity.MenuItem;
 import entity.Money;
 import entity.Order;
 import entity.PaymentRecord;
+import entity.Promotion;
 import entity.Restaurant;
 import entity.ScoreBoard;
 import entity.StaffMember;
@@ -21,8 +23,9 @@ import java.util.Scanner;
 /**
  * Boundary: the command-line interface.
  *
- * Reads the manager's commands from the keyboard and prints the game. It decides
- * nothing: the controller tells it what to show and which tasks are on offer.
+ * Reads the manager's commands and Happy Hour answers from the keyboard and prints
+ * the game. It decides nothing: the controller tells it what to show and which tasks
+ * are on offer.
  */
 public class ConsoleUI implements GameDisplay, ManagerInput {
 
@@ -54,8 +57,8 @@ public class ConsoleUI implements GameDisplay, ManagerInput {
         System.out.println();
         System.out.println(" Setting : " + config.getMaxTurns() + " turns, "
                 + restaurant.getTableCount() + " tables, seed " + config.getSeed());
-        System.out.println(" Staff   : Waiter 1 task per turn, Chef 1 preparation unit per turn,"
-                + " Cashier 1 payment per turn");
+        System.out.println(" Staff   : Host 1 seating per turn, Waiter 1 task per turn,"
+                + " Chef 1 preparation unit per turn, Cashier 1 payment per turn");
         System.out.println(" Targets : at least " + objective.getMinPaidCustomers()
                 + " paid customers, revenue at least "
                 + Money.format(objective.getMinRevenueCents())
@@ -69,12 +72,17 @@ public class ConsoleUI implements GameDisplay, ManagerInput {
                     item.getName(), Money.format(item.getPriceCents()), item.getPrepUnits());
         }
         System.out.println();
+        System.out.println(" Happy Hour is available once per game: "
+                + (100 - HappyHourPromotion.BILL_PERCENT) + "% off orders taken while it runs, "
+                + HappyHourPromotion.GOODWILL + " satisfaction back to waiting customers each"
+                + " active turn, for " + HappyHourPromotion.DURATION_TURNS + " turns.");
+        System.out.println();
         System.out.println(" Commands: " + CommandParser.SYNTAX);
         System.out.println(RULE);
     }
 
     @Override
-    public void showTurnStart(int turn) {
+    public void showTurnStart(int turn, Promotion promotion) {
         System.out.println();
         System.out.println(RULE);
         System.out.printf(" TURN %d of %d%n", turn, config.getMaxTurns());
@@ -83,6 +91,12 @@ public class ConsoleUI implements GameDisplay, ManagerInput {
                 Money.format(scoreBoard.getRevenueCents()),
                 scoreBoard.getPaidCustomerCount(),
                 formatAverage());
+        if (promotion.isActive()) {
+            System.out.printf(" Promotion: %s, %d turn(s) remaining%n",
+                    promotion.getName(), promotion.getTurnsRemaining());
+        } else {
+            System.out.println(" Promotion: none");
+        }
         System.out.println(THIN);
         showQueue();
         showTables();
@@ -148,7 +162,8 @@ public class ConsoleUI implements GameDisplay, ManagerInput {
 
     private void showStaff(int turn) {
         System.out.println(THIN);
-        System.out.printf(" Staff tasks available: Waiter %d, Chef %d, Cashier %d%n",
+        System.out.printf(" Staff tasks available: Host %d, Waiter %d, Chef %d, Cashier %d%n",
+                restaurant.getHost().getRemainingTasks(),
                 restaurant.getWaiter().getRemainingTasks(),
                 restaurant.getChef().getRemainingTasks(),
                 restaurant.getCashier().getRemainingTasks());
@@ -230,6 +245,55 @@ public class ConsoleUI implements GameDisplay, ManagerInput {
             showError("\"" + line.trim() + "\" is not a command. Use: "
                     + CommandParser.SYNTAX + ".");
         }
+    }
+
+    @Override
+    public boolean askActivateHappyHour() {
+        System.out.println(THIN);
+        System.out.println(" Happy Hour is still available (once per game, "
+                + HappyHourPromotion.DURATION_TURNS + " turns, "
+                + (100 - HappyHourPromotion.BILL_PERCENT) + "% off new orders, "
+                + HappyHourPromotion.GOODWILL + " satisfaction back to waiting customers).");
+        System.out.println(" " + describeWhoWouldBenefit());
+        while (true) {
+            System.out.print(" Activate Happy Hour this turn? (y/n) > ");
+            if (!scanner.hasNextLine()) {
+                System.out.println("n   (no more input)");
+                return false;
+            }
+            String answer = scanner.nextLine().trim().toLowerCase();
+            if (answer.equals("y") || answer.equals("yes")) {
+                return true;
+            }
+            if (answer.equals("n") || answer.equals("no")) {
+                return false;
+            }
+            showError("\"" + answer + "\" is not an answer. Type y or n.");
+        }
+    }
+
+    private String describeWhoWouldBenefit() {
+        List<Customer> waiting = restaurant.getCustomersOnPremises();
+        StringBuilder names = new StringBuilder();
+        int count = 0;
+        for (Customer customer : waiting) {
+            if (!customer.isAwaitingService()) {
+                continue;
+            }
+            if (count > 0) {
+                names.append(", ");
+            }
+            names.append(customer.getName()).append(" on ").append(customer.getSatisfaction());
+            count++;
+        }
+        if (count == 0) {
+            return "Right now nobody is waiting for a table or for food, so the goodwill"
+                    + " would be wasted.";
+        }
+        return "Right now " + count + " customer(s) would recover goodwill: " + names
+                + "; " + restaurant.getCustomersAwaitingOrder().size()
+                + " seated customer(s) have yet to order, so only their bills would be"
+                + " discounted.";
     }
 
     private String describe(List<StaffCommand> legal) {

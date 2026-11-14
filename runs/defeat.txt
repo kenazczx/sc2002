@@ -1,34 +1,35 @@
-# Stage 2 reproducible DEFEAT run, base setting, default seed 3.
+# Stage 3 reproducible DEFEAT run, base setting, default seed 42.
 #   java -cp out app.RestaurantRush --script runs/defeat.txt
 #
-# A manager who looks busy and still loses. Three customers are served promptly, but
-# the Critic and the VIP are never seated: the Critic loses 12 a turn and walks out at
-# the end of turn 12. Revenue reaches exactly $45.00 and average satisfaction is high,
-# yet only three customers pay, so the paid-customer target is missed and the game is
-# lost. All three targets have to be met (Section 2.1).
+# Two mistakes, both plausible. Happy Hour is switched on at turn 1, when only one
+# customer is on the floor. Its first turn of goodwill is wasted, because C1 is already
+# at full satisfaction, and its second only gives back the 8 points C1 lost at the end
+# of turn 1, so C1 pays at 84 instead of 76. The price of that is 20% off the largest
+# bill of the game: $24.30 becomes $19.44. (Answering n instead, the same commands
+# earn $39.30 at an average satisfaction of 84.0, and still lose.) The Critic is then
+# left in the queue and walks out at the end of turn 12. Only two customers pay, for
+# $34.44, so both the paid-customer and the revenue targets are missed even though
+# average satisfaction is high.
+#
+# The script stops after turn 8: once it runs out, every remaining task is a wait.
 #
 # Note on identifiers: orders are numbered in the order they are taken, not after their
-# customer. Here the Critic's order is never taken, so C3's order is #2 and C5's is #3.
+# customer. The Critic's order is never taken here, so C3's order is #2.
 #
-seat 1          # T1  W
-order 1         # T2  W   creates order #1
-prep 1          # T2  C
-prep 1          # T3  C
-serve 1         # T4  W
-wait            # T5  W   the Critic is queueing and is ignored
-wait            # T6  W
-seat 3          # T7  W
-order 3         # T8  W   creates order #2
-prep 2          # T8  C
-serve 2         # T9  W
-wait            # T10 W   the VIP is queueing and is ignored too
-wait            # T11 W
-wait            # T12 W   the Critic reaches satisfaction 0 and leaves
-seat 5          # T13 W
-order 5         # T14 W   creates order #3
-prep 3          # T14 C
-wait            # T15 W
-prep 3          # T15 C
-serve 3         # T16 W
-wait            # T17 W
-wait            # T18 W
+y               # T1  Happy Hour ON far too early
+seat 1          # T1  Host
+order 1         # T1  Waiter    $24.30 x 0.8 = $19.44, the discount achieves nothing
+prep 1          # T1  Chef
+prep 1          # T2  Chef
+prep 1          # T3  Chef
+wait            # T4  Host      the Critic is left in the queue
+serve 1         # T4  Waiter
+wait            # T5  Host
+wait            # T5  Waiter
+wait            # T6  Host
+wait            # T6  Waiter
+seat 3          # T7  Host
+order 3         # T7  Waiter
+prep 2          # T7  Chef      C3's order is #2
+wait            # T8  Host
+serve 2         # T8  Waiter

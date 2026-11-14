@@ -7,11 +7,16 @@ import entity.Chef;
 import entity.Customer;
 import entity.GameObjective;
 import entity.GameResult;
+import entity.HappyHourPromotion;
+import entity.Host;
 import entity.Money;
+import entity.NoPromotion;
 import entity.Order;
 import entity.PaymentRecord;
+import entity.Promotion;
 import entity.Restaurant;
 import entity.ScoreBoard;
+import entity.SeatingStaff;
 import entity.StaffMember;
 import entity.Table;
 import entity.Waiter;
@@ -38,6 +43,9 @@ public class GameController {
     private final GameDisplay display;
     private final ManagerInput input;
 
+    private Promotion promotion = new NoPromotion();
+    private boolean happyHourUsed;
+
     public GameController(GameConfig config, Restaurant restaurant, ScoreBoard scoreBoard,
                           ArrivalSchedule schedule, GameDisplay display, ManagerInput input) {
         this.config = config;
@@ -57,8 +65,13 @@ public class GameController {
             restaurant.beginTurn();
 
             handleArrivals(turn);
-            display.showTurnStart(turn);
 
+            handleHappyHour();     // settled before the turn is shown
+            applyPromotionGoodwill();
+
+            display.showTurnStart(turn, promotion);
+
+            handleHost();     // the Host acts first, so the Waiter can take that order this turn
             handleWaiter(turn);     // the Waiter acts before the Chef
             handleChef(turn);
 
@@ -66,6 +79,7 @@ public class GameController {
             handleWaitingAndAbandonment(turn);
 
             display.showTurnEnd(turn);
+            endPromotionTurn();
         }
 
         // judged once, after the last turn: all three targets must be met
@@ -82,6 +96,59 @@ public class GameController {
         restaurant.admit(arriving);
         display.showInfo(arriving + " arrives and joins the queue with satisfaction "
                 + arriving.getSatisfaction() + ".");
+    }
+
+    private void handleHappyHour() {
+        if (happyHourUsed || !input.askActivateHappyHour()) {
+            return;
+        }
+        promotion = new HappyHourPromotion();
+        happyHourUsed = true;
+        display.showInfo(promotion.getName() + " starts: orders taken now get "
+                + (100 - HappyHourPromotion.BILL_PERCENT) + "% off, waiting customers recover "
+                + HappyHourPromotion.GOODWILL + " satisfaction each active turn, and it runs for "
+                + promotion.getTurnsRemaining() + " turns.");
+    }
+
+    private void applyPromotionGoodwill() {
+        int goodwill = promotion.getGoodwillPerActiveTurn();
+        if (goodwill <= 0) {
+            return;
+        }
+        for (Customer customer : restaurant.getCustomers()) {
+            if (!customer.isAwaitingService()) {
+                continue;
+            }
+            int before = customer.getSatisfaction();
+            customer.recover(goodwill);
+            if (customer.getSatisfaction() != before) {
+                display.showInfo(promotion.getName() + " goodwill: " + customer + " recovers "
+                        + (customer.getSatisfaction() - before) + " to "
+                        + customer.getSatisfaction() + ".");
+            }
+        }
+    }
+
+    private void endPromotionTurn() {
+        promotion.endTurn();
+        if (!promotion.isActive()) {
+            promotion = new NoPromotion();
+        }
+    }
+
+    public Promotion getPromotion() {
+        return promotion;
+    }
+
+    private void handleHost() {
+        Host host = restaurant.getHost();
+        List<StaffCommand> legal = legalSeatingCommands();
+        StaffCommand command = askUntilLegal(host, legal, c -> checkSeatingCommand(host, c));
+        if (command.getTask() == StaffTask.SEAT) {
+            performSeating(host, restaurant.getWaitingQueue().findById(command.getTargetId()));
+        } else {
+            display.showInfo("The Host waits.");
+        }
     }
 
     private void handleWaiter(int turn) {
@@ -115,7 +182,7 @@ public class GameController {
         }
     }
 
-    private List<StaffCommand> legalWaiterCommands(int turn) {
+    private List<StaffCommand> legalSeatingCommands() {
         List<StaffCommand> legal = new ArrayList<StaffCommand>();
         legal.add(StaffCommand.waitTurn());
         if (restaurant.hasFreeTable()) {
@@ -123,6 +190,36 @@ public class GameController {
                 legal.add(StaffCommand.seat(customer.getId()));
             }
         }
+        return legal;
+    }
+
+    private ActionResult checkSeatingCommand(StaffMember staff, StaffCommand command) {
+        if (command == null) {
+            return ActionResult.failure("That is not a seating task.");
+        }
+        if (!staff.hasCapacity()) {
+            return ActionResult.failure("The " + staff.getRole()
+                    + " has already seated a customer this turn.");
+        }
+        if (command.getTask() == StaffTask.WAIT) {
+            return ActionResult.ok();
+        }
+        if (command.getTask() != StaffTask.SEAT) {
+            return ActionResult.failure("The " + staff.getRole() + " can only seat or wait.");
+        }
+        return checkSeat(command.getTargetId());
+    }
+
+    private void performSeating(SeatingStaff staff, Customer customer) {
+        Table table = restaurant.firstFreeTable();
+        restaurant.removeFromQueue(customer);
+        staff.seat(customer, table);
+        display.showInfo(staff.getRole() + " seats " + customer + " at Table "
+                + table.getNumber() + ".");
+    }
+
+    private List<StaffCommand> legalWaiterCommands(int turn) {
+        List<StaffCommand> legal = legalSeatingCommands();
         for (Customer customer : restaurant.getCustomersAwaitingOrder()) {
             legal.add(StaffCommand.takeOrder(customer.getId()));
         }
@@ -205,24 +302,20 @@ public class GameController {
             case WAIT:
                 display.showInfo("The Waiter waits.");
                 break;
-            case SEAT: {
-                Customer customer = restaurant.getWaitingQueue().findById(command.getTargetId());
-                Table table = restaurant.firstFreeTable();
-                restaurant.removeFromQueue(customer);
-                waiter.seat(customer, table);
-                display.showInfo("Waiter seats " + customer + " at Table " + table.getNumber()
-                        + ".");
+            case SEAT:
+                performSeating(waiter, restaurant.getWaitingQueue()
+                        .findById(command.getTargetId()));
                 break;
-            }
             case TAKE_ORDER: {
                 Customer customer = restaurant.findCustomer(command.getTargetId());
-                Order order = orderMgr.createOrderFor(customer, turn);
+                Order order = orderMgr.createOrderFor(customer, turn, promotion);
                 waiter.takeOrder(customer, order);
                 restaurant.registerOrder(order);
                 display.showInfo("Waiter takes order #" + order.getId() + ": " + customer
-                        + " chooses " + order.getItem().getName() + " for "
-                        + Money.format(order.getLockedPriceCents()) + " ("
-                        + order.getItem().getPrepUnits() + " preparation unit(s)).");
+                        + " chooses " + order.getItem().getName() + " (list "
+                        + Money.format(order.getItem().getPriceCents()) + ") and is billed "
+                        + Money.format(order.getLockedPriceCents()) + ", "
+                        + order.getItem().getPrepUnits() + " preparation unit(s).");
                 break;
             }
             case SERVE: {

@@ -1,0 +1,59 @@
+# Stage 3 VARIANT: the same line, with Happy Hour switched on at turn 4 instead of 10.
+#   java -cp out app.RestaurantRush --script runs/happy-hour-early.txt
+#
+# Turn 4 is the moment the floor is under most strain: C1 has been waiting three turns for a
+# three unit combo and the Critic has just arrived. Happy Hour's goodwill lifts C1 on both of
+# its turns and the Critic on the second, so C1 pays at satisfaction 98 instead of 68.
+#
+# The cost is the Critic's bill, which is taken during Happy Hour and so falls from $29.70 to
+# $23.76, and stays $23.76 when it is paid on turn 9, after Happy Hour has ended, because the
+# price is fixed when the order is taken. Because the promotion has expired by turn 10, the
+# VIP's Burger is billed $13.50 here (the VIP's own 10% only) rather than the $10.80 it costs
+# in runs/victory.txt.
+#
+# Net: average satisfaction rises from 83.6 to 91.0 and revenue falls from $88.80 to $85.56.
+# The same victory, bought differently. Compare the two runs side by side to see what one
+# decision about when to spend a once-per-game promotion is worth.
+#
+# Line-up: C1 Regular, C2 Critic, C3 Regular, C4 VIP, C5 Regular, C6 Regular.
+# Also shown here:
+#   - the Host seats a customer and the Waiter takes their order in the same turn;
+#   - C1 orders the Salad + Pasta combo, $24.30 for 3 preparation units;
+#   - the Critic orders Burger + Pasta, the most demanding item on the menu;
+#   - C3's order on turn 8 is at full price again, because Happy Hour has expired.
+#
+# Prompt order within a turn: Happy Hour, Host, Waiter, Chef. A staff member whose only legal
+# task is to wait is not asked, so those turns consume no line.
+#
+seat 1          # T1  Host
+order 1         # T1  Waiter    Salad + Pasta, 3 units
+prep 1          # T1  Chef      1/3
+prep 1          # T2  Chef      2/3
+prep 1          # T3  Chef      3/3, READY
+y               # T4  Happy Hour ON, two turns early
+seat 2          # T4  Host      the Critic
+order 2         # T4  Waiter    THE DECISIVE CHOICE: order for the Critic before serving C1.
+                #               It costs C1 two turns of satisfaction but is the only way to
+                #               serve the Critic within three turns, which earns the +10 review.
+prep 2          # T4  Chef      1/3
+serve 1         # T5  Waiter
+prep 2          # T5  Chef      2/3
+prep 2          # T6  Chef      3/3, READY
+serve 2         # T7  Waiter    three turns after arrival: favourable review
+seat 3          # T8  Host
+order 3         # T8  Waiter
+prep 3          # T8  Chef      Burger, READY in one unit
+serve 3         # T9  Waiter
+seat 4          # T10 Host      the VIP
+order 4         # T10 Waiter    Happy Hour is over: $15.00 x 0.9 = $13.50
+prep 4          # T10 Chef
+serve 4         # T11 Waiter
+seat 5          # T13 Host
+order 5         # T13 Waiter    Salad at the full $9.00
+prep 5          # T13 Chef
+serve 5         # T14 Waiter
+seat 6          # T16 Host      C6 cannot finish paying, but is seated and served anyway
+order 6         # T16 Waiter
+prep 6          # T16 Chef
+prep 6          # T17 Chef
+serve 6         # T18 Waiter

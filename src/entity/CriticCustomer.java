@@ -3,9 +3,9 @@ package entity;
 /**
  * Entity: a food critic.
  *
- * Loses 12 satisfaction per waiting turn and always orders the most demanding dish.
- * The satisfaction recorded at payment moves 10 points up if it was served within 3
- * turns of arriving, and 10 points down otherwise.
+ * Loses 12 satisfaction per waiting turn and always orders the most demanding item on
+ * the menu. The satisfaction recorded at payment moves 10 points up if it was served
+ * within 3 turns of arriving, and 10 points down otherwise.
  */
 public class CriticCustomer extends Customer {
 
@@ -13,8 +13,9 @@ public class CriticCustomer extends Customer {
     public static final int PROMPT_SERVICE_TURNS = 3;
     public static final int REVIEW_SWING = 10;
 
-    public CriticCustomer(int id, String name, int arrivalTurn, int tasteIndex) {
-        super(id, name, arrivalTurn, tasteIndex);
+    public CriticCustomer(int id, String name, int arrivalTurn, int tasteIndex,
+                     Appetite appetite) {
+        super(id, name, arrivalTurn, tasteIndex, appetite);
     }
 
     @Override

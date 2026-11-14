@@ -7,8 +7,11 @@ import control.GameController;
 import entity.Cashier;
 import entity.Chef;
 import entity.GameResult;
+import entity.ComboMeal;
+import entity.Host;
 import entity.Menu;
 import entity.MenuItem;
+import entity.SingleDish;
 import entity.Restaurant;
 import entity.ScoreBoard;
 import entity.Waiter;
@@ -24,13 +27,19 @@ public class AutoRun {
         long seed = args.length > 0 ? Long.parseLong(args[0]) : GameConfig.DEFAULT_SEED;
         GameConfig config = GameConfig.baseSetting(seed);
 
+        MenuItem salad = new SingleDish("Salad", 900, 1);
+        MenuItem burger = new SingleDish("Burger", 1500, 1);
+        MenuItem pasta = new SingleDish("Pasta", 1800, 2);
         Menu menu = new Menu();
-        menu.add(new MenuItem("Salad", 900, 1));
-        menu.add(new MenuItem("Burger", 1500, 1));
-        menu.add(new MenuItem("Pasta", 1800, 2));
+        menu.add(salad);
+        menu.add(burger);
+        menu.add(pasta);
+        menu.add(new ComboMeal(salad, burger));
+        menu.add(new ComboMeal(salad, pasta));
+        menu.add(new ComboMeal(burger, pasta));
 
         Restaurant restaurant = new Restaurant(config.getTableCount(), menu,
-                new Waiter(), new Chef(), new Cashier());
+                new Host(), new Waiter(), new Chef(), new Cashier());
         ScoreBoard scoreBoard = new ScoreBoard();
         ArrivalSchedule schedule = new ArrivalSchedule(config.getArrivalTurns(), seed);
 

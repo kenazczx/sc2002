@@ -8,11 +8,15 @@ import control.GameController;
 import control.StaffCommand;
 import entity.Cashier;
 import entity.Chef;
+import entity.ComboMeal;
 import entity.GameResult;
+import entity.Host;
 import entity.Menu;
 import entity.MenuItem;
+import entity.Promotion;
 import entity.Restaurant;
 import entity.ScoreBoard;
+import entity.SingleDish;
 import entity.StaffMember;
 import entity.Waiter;
 
@@ -31,6 +35,7 @@ public class FuzzRun {
         int games = args.length > 0 ? Integer.parseInt(args[0]) : 3000;
         int victories = 0;
         int failures = 0;
+        int maxRevenue = 0;
         int maxPaid = 0;
 
         for (int game = 0; game < games; game++) {
@@ -38,12 +43,9 @@ public class FuzzRun {
             Random chooser = new Random(game * 7919L + 13L);
             try {
                 GameConfig config = GameConfig.baseSetting(seed);
-                Menu menu = new Menu();
-                menu.add(new MenuItem("Salad", 900, 1));
-                menu.add(new MenuItem("Burger", 1500, 1));
-                menu.add(new MenuItem("Pasta", 1800, 2));
+                Menu menu = buildMenu();
                 Restaurant restaurant = new Restaurant(config.getTableCount(), menu,
-                        new Waiter(), new Chef(), new Cashier());
+                        new Host(), new Waiter(), new Chef(), new Cashier());
                 ScoreBoard scoreBoard = new ScoreBoard();
                 ArrivalSchedule schedule = new ArrivalSchedule(config.getArrivalTurns(), seed);
                 SilentUI ui = new SilentUI(chooser);
@@ -52,9 +54,10 @@ public class FuzzRun {
                 if (result == GameResult.VICTORY) {
                     victories++;
                 }
+                maxRevenue = Math.max(maxRevenue, scoreBoard.getRevenueCents());
                 maxPaid = Math.max(maxPaid, scoreBoard.getPaidCustomerCount());
                 if (scoreBoard.getPaidCustomerCount() > 5) {
-                    System.out.println("RULE BREACH: more than five paid, seed " + seed);
+                    System.out.println("RULE BREACH: more than five customers paid, seed " + seed);
                     failures++;
                 }
             } catch (RuntimeException broken) {
@@ -67,7 +70,22 @@ public class FuzzRun {
             }
         }
         System.out.println("games=" + games + " victories=" + victories
-                + " failures=" + failures + " mostPaid=" + maxPaid);
+                + " failures=" + failures + " mostPaid=" + maxPaid
+                + " bestRevenueCents=" + maxRevenue);
+    }
+
+    private static Menu buildMenu() {
+        MenuItem salad = new SingleDish("Salad", 900, 1);
+        MenuItem burger = new SingleDish("Burger", 1500, 1);
+        MenuItem pasta = new SingleDish("Pasta", 1800, 2);
+        Menu menu = new Menu();
+        menu.add(salad);
+        menu.add(burger);
+        menu.add(pasta);
+        menu.add(new ComboMeal(salad, burger));
+        menu.add(new ComboMeal(salad, pasta));
+        menu.add(new ComboMeal(burger, pasta));
+        return menu;
     }
 
     private static class SilentUI implements ManagerInput, GameDisplay {
@@ -83,11 +101,16 @@ public class FuzzRun {
         }
 
         @Override
+        public boolean askActivateHappyHour() {
+            return chooser.nextInt(18) == 0;
+        }
+
+        @Override
         public void showGameIntro() {
         }
 
         @Override
-        public void showTurnStart(int turn) {
+        public void showTurnStart(int turn, Promotion promotion) {
         }
 
         @Override

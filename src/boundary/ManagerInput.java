@@ -14,4 +14,6 @@ import java.util.List;
 public interface ManagerInput {
 
     StaffCommand askCommand(StaffMember staff, List<StaffCommand> legal);
+
+    boolean askActivateHappyHour();
 }

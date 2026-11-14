@@ -13,8 +13,10 @@ import java.util.List;
 /**
  * Boundary: replays a recorded script of commands, so a run can be repeated exactly.
  *
- * One command per line, and anything after a # is ignored. When the script runs out,
- * every remaining decision is to wait.
+ * One command per line, or y or n to answer the Happy Hour question, and anything
+ * after a # is ignored. If the next line is not y or n when the question is asked,
+ * the answer is no and the line is kept for the next command. When the script runs
+ * out, every remaining task is to wait and every answer is no.
  *
  * Usage:
  *   ManagerInput input = ScriptedInput.fromFile("runs/victory.txt");
@@ -45,6 +47,20 @@ public class ScriptedInput implements ManagerInput {
             }
         }
         return new ScriptedInput(cleaned);
+    }
+
+    @Override
+    public boolean askActivateHappyHour() {
+        if (cursor >= commands.size()) {
+            return false;
+        }
+        String line = commands.get(cursor).trim().toLowerCase();
+        if (!line.equals("y") && !line.equals("yes") && !line.equals("n") && !line.equals("no")) {
+            return false;
+        }
+        cursor++;
+        System.out.println(" Activate Happy Hour this turn? > " + line + "   (scripted)");
+        return line.equals("y") || line.equals("yes");
     }
 
     @Override

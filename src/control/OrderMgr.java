@@ -4,12 +4,14 @@ import entity.Customer;
 import entity.Menu;
 import entity.MenuItem;
 import entity.Order;
+import entity.Promotion;
 
 /**
  * Control: creates each order and fixes its price.
  *
- * The customer chooses the dish, never the manager. Orders are numbered in the order
- * they are taken.
+ * The customer chooses the dish, never the manager. The customer's own discount is
+ * applied first and the promotion's second, and the price never changes after that.
+ * Orders are numbered in the order they are taken.
  */
 public class OrderMgr {
 
@@ -20,9 +22,10 @@ public class OrderMgr {
         this.menu = menu;
     }
 
-    public Order createOrderFor(Customer customer, int turn) {
+    public Order createOrderFor(Customer customer, int turn, Promotion promotion) {
         MenuItem chosen = customer.chooseFrom(menu);
-        int price = customer.applyCustomerDiscount(chosen.getPriceCents());
-        return new Order(nextOrderId++, customer, chosen, price, turn);
+        int afterCustomerDiscount = customer.applyCustomerDiscount(chosen.getPriceCents());
+        int lockedPrice = promotion.applyTo(afterCustomerDiscount);
+        return new Order(nextOrderId++, customer, chosen, lockedPrice, turn);
     }
 }

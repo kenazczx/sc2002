@@ -5,10 +5,12 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Entity: the dishes a customer can choose from.
+ * Entity: everything a customer can order.
  *
- * mostDemandingItem() is what a Critic orders: the dish with the most preparation
- * units, the dearer one on a tie.
+ * itemsFor(appetite) gives a large appetite the combos and a small one the single
+ * dishes, or the whole menu when it has none of that kind. mostDemandingItem() is
+ * what a Critic orders: the item with the most preparation units, the dearer one on a
+ * tie.
  */
 public class Menu {
 
@@ -24,6 +26,20 @@ public class Menu {
 
     public int size() {
         return items.size();
+    }
+
+    public List<MenuItem> itemsFor(Appetite appetite) {
+        List<MenuItem> matching = new ArrayList<MenuItem>();
+        for (MenuItem item : items) {
+            boolean wantsMore = item.getPortions() > 1;
+            if (wantsMore == (appetite == Appetite.LARGE)) {
+                matching.add(item);
+            }
+        }
+        if (matching.isEmpty()) {
+            return getOrderableItems();
+        }
+        return Collections.unmodifiableList(matching);
     }
 
     public MenuItem mostDemandingItem() {

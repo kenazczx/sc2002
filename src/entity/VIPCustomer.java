@@ -10,8 +10,9 @@ public class VIPCustomer extends Customer {
     public static final int SATISFACTION_LOSS = 5;
     public static final int BILL_PERCENT = 90;
 
-    public VIPCustomer(int id, String name, int arrivalTurn, int tasteIndex) {
-        super(id, name, arrivalTurn, tasteIndex);
+    public VIPCustomer(int id, String name, int arrivalTurn, int tasteIndex,
+                     Appetite appetite) {
+        super(id, name, arrivalTurn, tasteIndex, appetite);
     }
 
     @Override

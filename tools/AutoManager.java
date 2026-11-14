@@ -8,6 +8,7 @@ import entity.Customer;
 import entity.GameResult;
 import entity.MenuItem;
 import entity.Order;
+import entity.Promotion;
 import entity.Restaurant;
 import entity.StaffMember;
 
@@ -55,6 +56,21 @@ public class AutoManager implements ManagerInput, GameDisplay {
         StaffCommand chosen = staff.getRole().equals("Chef") ? chooseChef(legal) : chooseWaiter(legal);
         recorded.add(chosen.toString());
         return chosen;
+    }
+
+    @Override
+    public boolean askActivateHappyHour() {
+        boolean activate = turn == happyHourTurn;
+        if (activate) {
+            recorded.add("y");
+        }
+        return activate;
+    }
+
+    private int happyHourTurn = -1;
+
+    public void setHappyHourTurn(int t) {
+        this.happyHourTurn = t;
     }
 
     private StaffCommand chooseWaiter(List<StaffCommand> legal) {
@@ -118,9 +134,9 @@ public class AutoManager implements ManagerInput, GameDisplay {
     }
 
     @Override
-    public void showTurnStart(int currentTurn) {
+    public void showTurnStart(int currentTurn, Promotion promotion) {
         this.turn = currentTurn;
-        delegate.showTurnStart(currentTurn);
+        delegate.showTurnStart(currentTurn, promotion);
     }
 
     @Override

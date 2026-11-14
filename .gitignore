@@ -6,3 +6,9 @@ bin/
 .project
 .classpath
 .settings/
+# IntelliJ IDEA and VS Code project files
+.idea/
+*.iml
+.vscode/
+# RStudio history
+.Rhistory

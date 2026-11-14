@@ -17,6 +17,7 @@ public class Restaurant {
     private final WaitingQueue waitingQueue = new WaitingQueue();
     private final Menu menu;
 
+    private final Host host;
     private final Waiter waiter;
     private final Chef chef;
     private final Cashier cashier;
@@ -24,17 +25,20 @@ public class Restaurant {
     private final List<Customer> customers = new ArrayList<Customer>();
     private final List<Order> orders = new ArrayList<Order>();
 
-    public Restaurant(int tableCount, Menu menu, Waiter waiter, Chef chef, Cashier cashier) {
+    public Restaurant(int tableCount, Menu menu, Host host, Waiter waiter, Chef chef,
+                      Cashier cashier) {
         for (int number = 1; number <= tableCount; number++) {
             tables.add(new Table(number));
         }
         this.menu = menu;
+        this.host = host;
         this.waiter = waiter;
         this.chef = chef;
         this.cashier = cashier;
     }
 
     public void beginTurn() {
+        host.beginTurn();
         waiter.beginTurn();
         chef.beginTurn();
         cashier.beginTurn();
@@ -155,6 +159,10 @@ public class Restaurant {
 
     public Menu getMenu() {
         return menu;
+    }
+
+    public Host getHost() {
+        return host;
     }
 
     public Waiter getWaiter() {
