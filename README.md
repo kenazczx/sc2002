@@ -259,8 +259,7 @@ No game rule from Stages 1 and 2 was rewritten. `Order`, `Table`, `WaitingQueue`
 The class diagrams use standard UML notation: every field,
 constructor and method, a boundary, control or entity stereotype icon on every class, a
 multiplicity and role name at the end of every association, and notes that point out
-encapsulation, polymorphism and composition. Each one was checked against the compiled
-classes of its own stage. The `.drawio` files are editable (open them in draw.io or at
+encapsulation, polymorphism and composition. Each one matches the code at its own tag. The `.drawio` files are editable (open them in draw.io or at
 diagrams.net), and the `.svg` files are scalable copies.
 
 ## Video timestamps

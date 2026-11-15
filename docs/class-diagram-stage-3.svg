@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="2444" height="3822" viewBox="0 0 2444 3822" font-family="Helvetica, 'TeX Gyre Heros', Arial, 'Liberation Sans', sans-serif" xml:space="preserve">
 <rect x="0" y="0" width="2444" height="3822" fill="#FFFFFF"/>
 <text x="40.0" y="44.0" font-size="16" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Restaurant Rush: Stage 3 class diagram (tag stage-3)</text>
-<text x="40.0" y="61.0" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">All 43 classes of the stage-3 code, with every member and every relationship checked against the compiled classes of that tag.</text>
+<text x="40.0" y="61.0" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">All 43 classes of Stage 3</text>
 <polyline points="100.0,204.0 100.0,450.0 540.0,450.0" fill="none" stroke="#333333" stroke-width="1.2" stroke-dasharray="6 4"/>
 <polyline points="530.0,455.0 540,450 530.0,445.0" fill="none" stroke="#333333" stroke-width="1.2"/>
 <polyline points="540.0,420.0 362.0,420.0 362.0,274.0" fill="none" stroke="#333333" stroke-width="1.2" stroke-dasharray="6 4"/>
