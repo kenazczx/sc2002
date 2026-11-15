@@ -1,8 +1,8 @@
 # SC2002 Restaurant Rush Group Assignment
 
 Restaurant Rush: a turn-based restaurant
-management game with a command-line interface. The player is the manager. Staff time is
-limited, so the manager decides which customers and orders come first.
+management game with a command-line interface, where player is the manager. As staff time is
+limited, the manager decides which customers and orders come first.
 
 **Repository:** https://github.com/kenazczx/sc2002
 
