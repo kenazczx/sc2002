@@ -252,11 +252,11 @@ No game rule from Stages 1 and 2 was rewritten. `Order`, `Table`, `WaitingQueue`
 | File | Shows |
 | --- | --- |
 | `docs/class-diagram-stage-1.*` | Stage 1: all 32 classes |
-| `docs/class-diagram-stage-2.*` | Stage 2: all 35 classes; the 3 added in Stage 2 have an orange border |
-| `docs/class-diagram-stage-3.*` | Stage 3: all 43 classes; the 8 added in Stage 3 have an orange border |
+| `docs/class-diagram-stage-2.*` | Stage 2: all 35 classes; the 3 added in Stage 2 have an orange border and the 3 changed have a dashed orange border |
+| `docs/class-diagram-stage-3.*` | Stage 3: all 43 classes; the 8 added in Stage 3 have an orange border and the 18 changed have a dashed orange border |
 | `docs/sequence-diagram-stage-3.*` | One complete scenario from `runs/victory.txt`: the VIP C4 from arrival to payment, with Happy Hour pricing, then the result check |
 
-The class diagrams use the notation of the Chapter 6 lecture slides: every field,
+The class diagrams use standard UML notation: every field,
 constructor and method, a boundary, control or entity stereotype icon on every class, a
 multiplicity and role name at the end of every association, and notes that point out
 encapsulation, polymorphism and composition. Each one was checked against the compiled

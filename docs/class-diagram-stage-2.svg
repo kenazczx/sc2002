@@ -56,6 +56,8 @@
 <polyline points="458.0,797.0 448,802 458.0,807.0" fill="none" stroke="#333333" stroke-width="1.2"/>
 <polyline points="656.0,1034.0 656.0,2251.0 728.0,2251.0" fill="none" stroke="#333333" stroke-width="1.2"/>
 <polyline points="718.0,2256.0 728,2251 718.0,2246.0" fill="none" stroke="#333333" stroke-width="1.2"/>
+<polyline points="545.0,1034.0 545.0,2840.0 960.0,2840.0" fill="none" stroke="#333333" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polyline points="950.0,2845.0 960,2840 950.0,2835.0" fill="none" stroke="#333333" stroke-width="1.2"/>
 <polyline points="945.0,1885.0 945.0,1850.0 1199.5,1850.0 1199.5,1824.0" fill="none" stroke="#333333" stroke-width="1.2"/>
 <polygon points="1199.5,1810 1207.5,1824.0 1191.5,1824.0" fill="#FFFFFF" stroke="#333333" stroke-width="1.2"/>
 <polyline points="1229.0,1885.0 1229.0,1850.0 1199.5,1850.0 1199.5,1824.0" fill="none" stroke="#333333" stroke-width="1.2"/>
@@ -225,6 +227,7 @@
 <text x="548.0" y="829.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">- describeRecordedSatisfaction(held: int, recorded: int): String</text>
 <text x="548.0" y="843.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">- handleWaitingAndAbandonment(turn: int): void</text>
 <rect x="540" y="400" width="382" height="452" fill="none" stroke="#82B366" stroke-width="1.3"/>
+<rect x="540" y="400" width="382" height="452" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
 <rect x="1070" y="400" width="259" height="76" fill="#FFFFFF"/>
 <rect x="1070" y="400" width="259" height="38" fill="#DAE8FC"/>
 <text x="1199.5" y="414.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle" fill="#333333">«interface»</text>
@@ -395,6 +398,7 @@
 <text x="48.0" y="681.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">- indexOf(turn: int): int</text>
 <text x="48.0" y="695.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getTotalArrivals(): int</text>
 <rect x="40" y="490" width="371" height="214" fill="none" stroke="#82B366" stroke-width="1.3"/>
+<rect x="40" y="490" width="371" height="214" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
 <rect x="40" y="774" width="130" height="90" fill="#FFFFFF"/>
 <rect x="40" y="774" width="130" height="38" fill="#FFF2CC"/>
 <text x="105.0" y="788.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle" fill="#333333">«enumeration»</text>
@@ -535,6 +539,7 @@
 <text x="736.0" y="2284.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ size(): int</text>
 <text x="736.0" y="2298.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ mostDemandingItem(): MenuItem</text>
 <rect x="728" y="2191" width="212" height="116" fill="none" stroke="#D6B656" stroke-width="1.3"/>
+<rect x="728" y="2191" width="212" height="116" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
 <rect x="560" y="2655" width="294" height="158" fill="#FFFFFF"/>
 <rect x="560" y="2655" width="294" height="26" fill="#FFF2CC"/>
 <text x="707.0" y="2672.0" font-size="12" font-weight="bold" font-style="normal" text-anchor="middle" fill="#333333">MenuItem</text>
@@ -878,6 +883,8 @@
 <text x="719.2" y="2244.1" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle" fill="#333333">1</text>
 <rect x="695.0" y="2255.0" width="29.0" height="13.0" fill="#FFFFFF" opacity="0.92"/>
 <text x="709.5" y="2265.1" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle" fill="#333333">menu</text>
+<rect x="722.4" y="2824.0" width="60.3" height="13.0" fill="#FFFFFF" opacity="0.92"/>
+<text x="752.5" y="2834.1" font-size="10" font-weight="normal" font-style="italic" text-anchor="middle" fill="#333333">«instantiate»</text>
 <rect x="1056.0" y="2005.0" width="9.6" height="13.0" fill="#FFFFFF" opacity="0.92"/>
 <text x="1060.8" y="2015.1" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle" fill="#333333">1</text>
 <rect x="1017.6" y="2005.0" width="30.4" height="13.0" fill="#FFFFFF" opacity="0.92"/>
@@ -997,31 +1004,24 @@
 <rect x="1852" y="619" width="22" height="12" fill="none" stroke="#D79B00" stroke-width="2.6"/>
 <text x="1882.0" y="629.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">orange border: class added in stage 2</text>
 <rect x="1852" y="633" width="22" height="12" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="4 2"/>
-<text x="1882" y="643" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">dashed orange border: class changed in stage 2</text>
-<text x="1850.0" y="668" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Members</text>
-<text x="1852.0" y="681" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Visibility: + public, - private, # protected, ~ package. Underlined:</text>
-<text x="1852.0" y="694" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">static. Italic with {abstract}: abstract.</text>
-<text x="1852.0" y="707" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Attribute: name: type = initial value</text>
-<text x="1852.0" y="720" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Operation: name(parameter: type): return type</text>
-<text x="1852.0" y="733" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Constructor: the class name, and no return type</text>
-<text x="1852.0" y="746" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Every field, constructor and method declared in the code is listed.</text>
-<text x="1852.0" y="759" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">{...} after an attribute is a constraint the class keeps.</text>
-<text x="1852.0" y="772" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Role names on the lines are the Java field names. {ordered}: the field</text>
-<text x="1852.0" y="785" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">is a List, so it keeps its order.</text>
-<text x="1850.0" y="810" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Dependencies left out to keep lines apart</text>
-<text x="1852.0" y="823" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">RestaurantRush creates and wires every object; only its «instantiate»</text>
-<text x="1852.0" y="836" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">of GameController is drawn.</text>
-<text x="1852.0" y="849" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">ArrivalSchedule creates the RegularCustomer, VIPCustomer and</text>
-<text x="1852.0" y="862" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">CriticCustomer objects that it returns as Customer.</text>
-<text x="1852.0" y="875" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Money (static helpers for cents) is used by MenuItem, Order,</text>
-<text x="1852.0" y="888" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">VIPCustomer, GameController and ConsoleUI.</text>
-<text x="1852.0" y="901" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Any other parameter or return type can be read in the operation</text>
-<text x="1852.0" y="914" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">signatures.</text>
-<rect x="40" y="490" width="371" height="214" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
-<rect x="728" y="2191" width="212" height="116" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
-<rect x="540" y="400" width="382" height="452" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
-<polyline points="560,1034 560,2450 985,2450 985,2655" fill="none" stroke="#333333" stroke-width="1.2" stroke-dasharray="6 4"/>
-<polyline points="980,2645 985,2655 990,2645" fill="none" stroke="#333333" stroke-width="1.2"/>
-<rect x="849.8" y="2439.9" width="60.3" height="13.0" fill="#FFFFFF" opacity="0.92"/>
-<text x="880.0" y="2450.0" font-size="10" font-weight="normal" font-style="italic" text-anchor="middle" fill="#333333">«instantiate»</text>
+<text x="1882.0" y="643.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">dashed orange border: class changed in stage 2</text>
+<text x="1850.0" y="668.0" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Members</text>
+<text x="1852.0" y="681.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Visibility: + public, - private, # protected, ~ package. Underlined:</text>
+<text x="1852.0" y="694.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">static. Italic with {abstract}: abstract.</text>
+<text x="1852.0" y="707.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Attribute: name: type = initial value</text>
+<text x="1852.0" y="720.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Operation: name(parameter: type): return type</text>
+<text x="1852.0" y="733.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Constructor: the class name, and no return type</text>
+<text x="1852.0" y="746.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Every field, constructor and method declared in the code is listed.</text>
+<text x="1852.0" y="759.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">{...} after an attribute is a constraint the class keeps.</text>
+<text x="1852.0" y="772.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Role names on the lines are the Java field names. {ordered}: the field</text>
+<text x="1852.0" y="785.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">is a List, so it keeps its order.</text>
+<text x="1850.0" y="810.0" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Dependencies left out to keep lines apart</text>
+<text x="1852.0" y="823.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">RestaurantRush creates and wires every object; only its «instantiate»</text>
+<text x="1852.0" y="836.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">of GameController is drawn.</text>
+<text x="1852.0" y="849.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">ArrivalSchedule creates the RegularCustomer, VIPCustomer and</text>
+<text x="1852.0" y="862.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">CriticCustomer objects that it returns as Customer.</text>
+<text x="1852.0" y="875.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Money (static helpers for cents) is used by MenuItem, Order,</text>
+<text x="1852.0" y="888.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">VIPCustomer, GameController and ConsoleUI.</text>
+<text x="1852.0" y="901.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Any other parameter or return type can be read in the operation</text>
+<text x="1852.0" y="914.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">signatures.</text>
 </svg>
