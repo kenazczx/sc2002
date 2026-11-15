@@ -106,7 +106,7 @@ least 60 over the customers who paid.
   game seed, so a seed always gives the same six orders. Each customer has a one in three
   chance of a large appetite. A customer with a large appetite chooses among the combos and a customer with a small one
   chooses among the single dishes, taking item number `tasteIndex mod n` of that group, where `n`
-  is the number of items in it. A Critic ignores both and orders the item with the most preparation units. If there is a tie, the more expensive one is selected, which on this menu is Burger + Pasta.
+  is the number of items in it. A Critic ignores both taste index and appetite and orders the item with the most preparation units. If there is a tie, the more expensive one is selected, which on this menu is Burger + Pasta.
 * **Happy Hour.** Can be switched on once per game, at the start of a turn, and lasts that
   turn and the next. The start of each turn shows its remaining duration. An order taken
   while it runs costs 20% less, applied after the VIP's 10%, and the price is fixed when
