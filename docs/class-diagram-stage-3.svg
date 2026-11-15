@@ -927,7 +927,7 @@
 <text x="1738.0" y="237.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">input.askCommand(...) and</text>
 <text x="1738.0" y="250.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">input.askActivateHappyHour() calls</text>
 <text x="1738.0" y="263.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">reach either one.</text>
-<path d="M40,1046 L258,1046 L270,1058 L270,1166 L40,1166 Z" fill="#FFFDF5" stroke="#888888" stroke-width="1"/>
+<path d="M40,1046 L258,1046 L270,1058 L270,1179 L40,1179 Z" fill="#FFFDF5" stroke="#888888" stroke-width="1"/>
 <path d="M258,1046 L258,1058 L270,1058" fill="none" stroke="#888888" stroke-width="1"/>
 <text x="48.0" y="1062.0" font-size="10" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Polymorphism (interface)</text>
 <text x="48.0" y="1075.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">GameController always holds a Promotion: a</text>
@@ -937,6 +937,7 @@
 <text x="48.0" y="1127.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">getGoodwillPerActiveTurn() are bound at run</text>
 <text x="48.0" y="1140.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">time, so no code tests which promotion is</text>
 <text x="48.0" y="1153.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">running or checks for null.</text>
+<text x="48.0" y="1166.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">NoPromotion is the Null Object pattern.</text>
 <path d="M40,1514 L338,1514 L350,1526 L350,1621 L40,1621 Z" fill="#FFFDF5" stroke="#888888" stroke-width="1"/>
 <path d="M338,1514 L338,1526 L350,1526" fill="none" stroke="#888888" stroke-width="1"/>
 <text x="48.0" y="1530.0" font-size="10" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Polymorphism</text>
@@ -1164,7 +1165,7 @@
 <text x="790.8" y="2974.1" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle" fill="#333333">1</text>
 <rect x="786.0" y="2943.0" width="36.2" height="13.0" fill="#FFFFFF" opacity="0.92"/>
 <text x="804.1" y="2953.1" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle" fill="#333333">second</text>
-<rect x="1966" y="130" width="330" height="564" fill="#FFFFFF" stroke="#999999" stroke-width="1"/>
+<rect x="1966" y="130" width="330" height="578" fill="#FFFFFF" stroke="#999999" stroke-width="1"/>
 <text x="1976.0" y="151.0" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Notation</text>
 <polyline points="1978.0,165.0 2022.0,165.0" fill="none" stroke="#333333" stroke-width="1.2"/>
 <polygon points="2036,165 2022.0,173.0 2022.0,157.0" fill="#FFFFFF" stroke="#333333" stroke-width="1.2"/>
@@ -1208,27 +1209,51 @@
 <text x="1978.0" y="345.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">the game, so it has no stereotype.</text>
 <rect x="1978" y="349" width="22" height="12" fill="none" stroke="#D79B00" stroke-width="2.6"/>
 <text x="2008.0" y="359.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">orange border: class added in stage 3</text>
-<text x="1976.0" y="384.0" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Members</text>
-<text x="1978.0" y="397.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Visibility: + public, - private, # protected, ~ package. Underlined:</text>
-<text x="1978.0" y="410.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">static. Italic with {abstract}: abstract.</text>
-<text x="1978.0" y="423.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Attribute: name: type = initial value</text>
-<text x="1978.0" y="436.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Operation: name(parameter: type): return type</text>
-<text x="1978.0" y="449.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Constructor: the class name, and no return type</text>
-<text x="1978.0" y="462.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Every field, constructor and method declared in the code is listed.</text>
-<text x="1978.0" y="475.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">{...} after an attribute is a constraint the class keeps.</text>
-<text x="1978.0" y="488.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Role names on the lines are the Java field names. {ordered}: the field</text>
-<text x="1978.0" y="501.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">is a List, so it keeps its order.</text>
-<text x="1976.0" y="526.0" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Dependencies left out to keep lines apart</text>
-<text x="1978.0" y="539.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">RestaurantRush creates and wires every object; only its «instantiate»</text>
-<text x="1978.0" y="552.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">of GameController is drawn.</text>
-<text x="1978.0" y="565.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">ArrivalSchedule creates the RegularCustomer, VIPCustomer and</text>
-<text x="1978.0" y="578.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">CriticCustomer objects that it returns as Customer, each with an</text>
-<text x="1978.0" y="591.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Appetite.</text>
-<text x="1978.0" y="604.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Money (static helpers for cents) is used by MenuItem, ComboMeal,</text>
-<text x="1978.0" y="617.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Order, VIPCustomer, HappyHourPromotion, GameController and</text>
-<text x="1978.0" y="630.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">ConsoleUI.</text>
-<text x="1978.0" y="643.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">GameController and ConsoleUI read the HappyHourPromotion</text>
-<text x="1978.0" y="656.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">constants to describe Happy Hour.</text>
-<text x="1978.0" y="669.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Any other parameter or return type can be read in the operation</text>
-<text x="1978.0" y="682.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">signatures.</text>
+<rect x="1978" y="363" width="22" height="12" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="4 2"/>
+<text x="2008" y="373" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">dashed orange border: class changed in stage 3</text>
+<text x="1976.0" y="398" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Members</text>
+<text x="1978.0" y="411" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Visibility: + public, - private, # protected, ~ package. Underlined:</text>
+<text x="1978.0" y="424" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">static. Italic with {abstract}: abstract.</text>
+<text x="1978.0" y="437" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Attribute: name: type = initial value</text>
+<text x="1978.0" y="450" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Operation: name(parameter: type): return type</text>
+<text x="1978.0" y="463" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Constructor: the class name, and no return type</text>
+<text x="1978.0" y="476" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Every field, constructor and method declared in the code is listed.</text>
+<text x="1978.0" y="489" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">{...} after an attribute is a constraint the class keeps.</text>
+<text x="1978.0" y="502" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Role names on the lines are the Java field names. {ordered}: the field</text>
+<text x="1978.0" y="515" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">is a List, so it keeps its order.</text>
+<text x="1976.0" y="540" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Dependencies left out to keep lines apart</text>
+<text x="1978.0" y="553" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">RestaurantRush creates and wires every object; only its «instantiate»</text>
+<text x="1978.0" y="566" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">of GameController is drawn.</text>
+<text x="1978.0" y="579" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">ArrivalSchedule creates the RegularCustomer, VIPCustomer and</text>
+<text x="1978.0" y="592" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">CriticCustomer objects that it returns as Customer, each with an</text>
+<text x="1978.0" y="605" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Appetite.</text>
+<text x="1978.0" y="618" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Money (static helpers for cents) is used by MenuItem, ComboMeal,</text>
+<text x="1978.0" y="631" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Order, VIPCustomer, HappyHourPromotion, GameController and</text>
+<text x="1978.0" y="644" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">ConsoleUI.</text>
+<text x="1978.0" y="657" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">GameController and ConsoleUI read the HappyHourPromotion</text>
+<text x="1978.0" y="670" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">constants to describe Happy Hour.</text>
+<text x="1978.0" y="683" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Any other parameter or return type can be read in the operation</text>
+<text x="1978.0" y="696" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">signatures.</text>
+<rect x="540" y="400" width="382" height="606" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="1477" y="400" width="299" height="424" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="40" y="130" width="148" height="74" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="610" y="2838" width="172" height="156" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="692" y="2346" width="248" height="130" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="1070" y="130" width="259" height="158" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="1330" y="2838" width="327" height="702" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="40" y="490" width="379" height="228" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="1022" y="2236" width="354" height="522" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="400" y="1504" width="251" height="116" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="1500" y="130" width="195" height="88" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="1722" y="3620" width="352" height="172" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="912" y="3620" width="365" height="116" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="1327" y="3620" width="345" height="144" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="1059" y="550" width="281" height="132" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="1070" y="400" width="259" height="90" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="1038" y="742" width="324" height="242" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="808" y="2040" width="274" height="116" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<polyline points="560,1620 560,2600 985,2600 985,2838" fill="none" stroke="#333333" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polyline points="980,2828 985,2838 990,2828" fill="none" stroke="#333333" stroke-width="1.2"/>
+<rect x="849.8" y="2589.9" width="60.3" height="13.0" fill="#FFFFFF" opacity="0.92"/>
+<text x="880.0" y="2600.0" font-size="10" font-weight="normal" font-style="italic" text-anchor="middle" fill="#333333">«instantiate»</text>
 </svg>

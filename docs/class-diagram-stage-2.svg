@@ -92,12 +92,12 @@
 <polygon points="2072,2799 2066.0,2808.0 2072.0,2817.0 2078.0,2808.0" fill="#FFFFFF" stroke="#333333" stroke-width="1.2"/>
 <polyline points="1657.0,3010.0 1757.0,3010.0" fill="none" stroke="#333333" stroke-width="1.2"/>
 <polyline points="1747.0,3015.0 1757,3010 1747.0,3005.0" fill="none" stroke="#333333" stroke-width="1.2"/>
-<polyline points="1095.0,3403.0 1095.0,3368.0 1493.5,3368.0 1493.5,3329.0" fill="none" stroke="#333333" stroke-width="1.2"/>
-<polygon points="1493.5,3315 1501.5,3329.0 1485.5,3329.0" fill="#FFFFFF" stroke="#333333" stroke-width="1.2"/>
-<polyline points="1493.5,3403.0 1493.5,3329.0" fill="none" stroke="#333333" stroke-width="1.2"/>
-<polygon points="1493.5,3315 1501.5,3329.0 1485.5,3329.0" fill="#FFFFFF" stroke="#333333" stroke-width="1.2"/>
-<polyline points="1899.5,3403.0 1899.5,3368.0 1493.5,3368.0 1493.5,3329.0" fill="none" stroke="#333333" stroke-width="1.2"/>
-<polygon points="1493.5,3315 1501.5,3329.0 1485.5,3329.0" fill="#FFFFFF" stroke="#333333" stroke-width="1.2"/>
+<polyline points="1095.0,3403.0 1095.0,3368.0 1493.5,3368.0 1493.5,3315.0" fill="none" stroke="#333333" stroke-width="1.2"/>
+<polygon points="1493.5,3301 1501.5,3315.0 1485.5,3315.0" fill="#FFFFFF" stroke="#333333" stroke-width="1.2"/>
+<polyline points="1493.5,3403.0 1493.5,3315.0" fill="none" stroke="#333333" stroke-width="1.2"/>
+<polygon points="1493.5,3301 1501.5,3315.0 1485.5,3315.0" fill="#FFFFFF" stroke="#333333" stroke-width="1.2"/>
+<polyline points="1899.5,3403.0 1899.5,3368.0 1493.5,3368.0 1493.5,3315.0" fill="none" stroke="#333333" stroke-width="1.2"/>
+<polygon points="1493.5,3301 1501.5,3315.0 1485.5,3315.0" fill="#FFFFFF" stroke="#333333" stroke-width="1.2"/>
 <polyline points="100.0,704.0 100.0,774.0" fill="none" stroke="#333333" stroke-width="1.2"/>
 <polyline points="95.0,764.0 100,774 105.0,764.0" fill="none" stroke="#333333" stroke-width="1.2"/>
 <polyline points="1750.0,400.0 1750.0,263.0" fill="none" stroke="#666666" stroke-width="1" stroke-dasharray="4 3"/>
@@ -589,7 +589,7 @@
 <text x="968.0" y="3098.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getServedAtTurn(): int</text>
 <text x="968.0" y="3112.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ toString(): String</text>
 <rect x="960" y="2655" width="275" height="466" fill="none" stroke="#D6B656" stroke-width="1.3"/>
-<rect x="1330" y="2655" width="327" height="660" fill="#FFFFFF"/>
+<rect x="1330" y="2655" width="327" height="646" fill="#FFFFFF"/>
 <rect x="1330" y="2655" width="327" height="38" fill="#FFF2CC"/>
 <text x="1493.5" y="2672.0" font-size="12" font-weight="bold" font-style="italic" text-anchor="middle" fill="#333333">Customer</text>
 <text x="1493.5" y="2686.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle" fill="#333333">{abstract}</text>
@@ -623,24 +623,23 @@
 <text x="1338.0" y="3040.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ leaveDissatisfied(): void</text>
 <text x="1338.0" y="3054.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">- leaveTable(): void</text>
 <text x="1338.0" y="3068.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ applyWaitingLoss(): void</text>
-<text x="1338.0" y="3082.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ recover(points: int): void</text>
-<text x="1338.0" y="3096.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ isAwaitingService(): boolean</text>
-<text x="1338.0" y="3110.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ hasRunOutOfPatience(): boolean</text>
-<text x="1338.0" y="3124.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ hasFinishedEatingBy(turn: int): boolean</text>
-<text x="1338.0" y="3138.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ isPayableOn(turn: int): boolean</text>
-<text x="1338.0" y="3152.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ isAwaitingOrder(): boolean</text>
-<text x="1338.0" y="3166.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ hasFinished(): boolean</text>
-<text x="1338.0" y="3180.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getId(): int</text>
-<text x="1338.0" y="3194.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getName(): String</text>
-<text x="1338.0" y="3208.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getArrivalTurn(): int</text>
-<text x="1338.0" y="3222.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getSatisfaction(): int</text>
-<text x="1338.0" y="3236.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getState(): CustomerState</text>
-<text x="1338.0" y="3250.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getTable(): Table</text>
-<text x="1338.0" y="3264.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getOrder(): Order</text>
-<text x="1338.0" y="3278.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getServedAtTurn(): int</text>
-<text x="1338.0" y="3292.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getReadyToPayAtTurn(): int</text>
-<text x="1338.0" y="3306.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ toString(): String</text>
-<rect x="1330" y="2655" width="327" height="660" fill="none" stroke="#D6B656" stroke-width="1.3"/>
+<text x="1338.0" y="3082.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ isAwaitingService(): boolean</text>
+<text x="1338.0" y="3096.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ hasRunOutOfPatience(): boolean</text>
+<text x="1338.0" y="3110.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ hasFinishedEatingBy(turn: int): boolean</text>
+<text x="1338.0" y="3124.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ isPayableOn(turn: int): boolean</text>
+<text x="1338.0" y="3138.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ isAwaitingOrder(): boolean</text>
+<text x="1338.0" y="3152.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ hasFinished(): boolean</text>
+<text x="1338.0" y="3166.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getId(): int</text>
+<text x="1338.0" y="3180.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getName(): String</text>
+<text x="1338.0" y="3194.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getArrivalTurn(): int</text>
+<text x="1338.0" y="3208.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getSatisfaction(): int</text>
+<text x="1338.0" y="3222.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getState(): CustomerState</text>
+<text x="1338.0" y="3236.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getTable(): Table</text>
+<text x="1338.0" y="3250.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getOrder(): Order</text>
+<text x="1338.0" y="3264.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getServedAtTurn(): int</text>
+<text x="1338.0" y="3278.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ getReadyToPayAtTurn(): int</text>
+<text x="1338.0" y="3292.5" font-size="11" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">+ toString(): String</text>
+<rect x="1330" y="2655" width="327" height="646" fill="none" stroke="#D6B656" stroke-width="1.3"/>
 <rect x="1757" y="2655" width="195" height="158" fill="#FFFFFF"/>
 <rect x="1757" y="2655" width="195" height="26" fill="#FFF2CC"/>
 <text x="1854.5" y="2672.0" font-size="12" font-weight="bold" font-style="normal" text-anchor="middle" fill="#333333">Table</text>
@@ -953,7 +952,7 @@
 <text x="135.4" y="767.1" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle" fill="#333333">1..* {ordered}</text>
 <rect x="63.6" y="757.0" width="32.4" height="13.0" fill="#FFFFFF" opacity="0.92"/>
 <text x="79.8" y="767.1" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle" fill="#333333">lineUp</text>
-<rect x="1840" y="400" width="330" height="512" fill="#FFFFFF" stroke="#999999" stroke-width="1"/>
+<rect x="1840" y="400" width="330" height="526" fill="#FFFFFF" stroke="#999999" stroke-width="1"/>
 <text x="1850.0" y="421.0" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Notation</text>
 <polyline points="1852.0,435.0 1896.0,435.0" fill="none" stroke="#333333" stroke-width="1.2"/>
 <polygon points="1910,435 1896.0,443.0 1896.0,427.0" fill="#FFFFFF" stroke="#333333" stroke-width="1.2"/>
@@ -997,23 +996,32 @@
 <text x="1852.0" y="615.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">the game, so it has no stereotype.</text>
 <rect x="1852" y="619" width="22" height="12" fill="none" stroke="#D79B00" stroke-width="2.6"/>
 <text x="1882.0" y="629.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">orange border: class added in stage 2</text>
-<text x="1850.0" y="654.0" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Members</text>
-<text x="1852.0" y="667.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Visibility: + public, - private, # protected, ~ package. Underlined:</text>
-<text x="1852.0" y="680.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">static. Italic with {abstract}: abstract.</text>
-<text x="1852.0" y="693.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Attribute: name: type = initial value</text>
-<text x="1852.0" y="706.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Operation: name(parameter: type): return type</text>
-<text x="1852.0" y="719.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Constructor: the class name, and no return type</text>
-<text x="1852.0" y="732.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Every field, constructor and method declared in the code is listed.</text>
-<text x="1852.0" y="745.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">{...} after an attribute is a constraint the class keeps.</text>
-<text x="1852.0" y="758.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Role names on the lines are the Java field names. {ordered}: the field</text>
-<text x="1852.0" y="771.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">is a List, so it keeps its order.</text>
-<text x="1850.0" y="796.0" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Dependencies left out to keep lines apart</text>
-<text x="1852.0" y="809.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">RestaurantRush creates and wires every object; only its «instantiate»</text>
-<text x="1852.0" y="822.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">of GameController is drawn.</text>
-<text x="1852.0" y="835.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">ArrivalSchedule creates the RegularCustomer, VIPCustomer and</text>
-<text x="1852.0" y="848.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">CriticCustomer objects that it returns as Customer.</text>
-<text x="1852.0" y="861.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Money (static helpers for cents) is used by MenuItem, Order,</text>
-<text x="1852.0" y="874.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">VIPCustomer, GameController and ConsoleUI.</text>
-<text x="1852.0" y="887.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Any other parameter or return type can be read in the operation</text>
-<text x="1852.0" y="900.0" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">signatures.</text>
+<rect x="1852" y="633" width="22" height="12" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="4 2"/>
+<text x="1882" y="643" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">dashed orange border: class changed in stage 2</text>
+<text x="1850.0" y="668" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Members</text>
+<text x="1852.0" y="681" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Visibility: + public, - private, # protected, ~ package. Underlined:</text>
+<text x="1852.0" y="694" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">static. Italic with {abstract}: abstract.</text>
+<text x="1852.0" y="707" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Attribute: name: type = initial value</text>
+<text x="1852.0" y="720" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Operation: name(parameter: type): return type</text>
+<text x="1852.0" y="733" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Constructor: the class name, and no return type</text>
+<text x="1852.0" y="746" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Every field, constructor and method declared in the code is listed.</text>
+<text x="1852.0" y="759" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">{...} after an attribute is a constraint the class keeps.</text>
+<text x="1852.0" y="772" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Role names on the lines are the Java field names. {ordered}: the field</text>
+<text x="1852.0" y="785" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">is a List, so it keeps its order.</text>
+<text x="1850.0" y="810" font-size="11" font-weight="bold" font-style="normal" text-anchor="start" fill="#333333">Dependencies left out to keep lines apart</text>
+<text x="1852.0" y="823" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">RestaurantRush creates and wires every object; only its «instantiate»</text>
+<text x="1852.0" y="836" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">of GameController is drawn.</text>
+<text x="1852.0" y="849" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">ArrivalSchedule creates the RegularCustomer, VIPCustomer and</text>
+<text x="1852.0" y="862" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">CriticCustomer objects that it returns as Customer.</text>
+<text x="1852.0" y="875" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Money (static helpers for cents) is used by MenuItem, Order,</text>
+<text x="1852.0" y="888" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">VIPCustomer, GameController and ConsoleUI.</text>
+<text x="1852.0" y="901" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">Any other parameter or return type can be read in the operation</text>
+<text x="1852.0" y="914" font-size="10" font-weight="normal" font-style="normal" text-anchor="start" fill="#333333">signatures.</text>
+<rect x="40" y="490" width="371" height="214" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="728" y="2191" width="212" height="116" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<rect x="540" y="400" width="382" height="452" fill="none" stroke="#D79B00" stroke-width="2.2" stroke-dasharray="7 4"/>
+<polyline points="560,1034 560,2450 985,2450 985,2655" fill="none" stroke="#333333" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polyline points="980,2645 985,2655 990,2645" fill="none" stroke="#333333" stroke-width="1.2"/>
+<rect x="849.8" y="2439.9" width="60.3" height="13.0" fill="#FFFFFF" opacity="0.92"/>
+<text x="880.0" y="2450.0" font-size="10" font-weight="normal" font-style="italic" text-anchor="middle" fill="#333333">«instantiate»</text>
 </svg>
