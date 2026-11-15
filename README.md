@@ -275,6 +275,8 @@ Youtube URL: https://www.youtube.com/watch?v=0MOWFbbjKOU
 | 5 | A Stage 3 feature | `04:50` | Dakshinamoorthi Thiyageswaran |
 | 6 | One victory and one defeat (separate reproducible runs) | `06:35` | Dakshinamoorthi Thiyageswaran |
 | 7 | The stage tag comparisons and the diagrams | `07:15` (diagrams), `10:50` (comparisons) | Stephanie Ann Koh Shu Hui, Tian Kai Yang |
+| 8 | Contributions and key learning (closing) | `13:50` | Chan Zhao Xian, Dakshinamoorthi Thiyageswaran, Stephanie Ann Koh Shu Hui, Tian Kai Yang |
+
 
 ## Development harnesses
 
