@@ -163,7 +163,7 @@ deleted, and why. Line counts are from `git diff --numstat` between the two tags
 
 ### Stage 1 → Stage 2: VIP and Critic customers
 
-Compare: https://github.com/kenazczx/sc2002/compare/stage-1...stage-2
+Compare: https://github.com/kenazczx/sc2002/compare/stage-1..stage-2
 
 New files:
 
@@ -189,7 +189,7 @@ two new types only add subclasses, and `GameController` never tests a customer's
 
 ### Stage 2 → Stage 3: Host, ComboMeal and Happy Hour
 
-Compare: https://github.com/kenazczx/sc2002/compare/stage-2...stage-3
+Compare: https://github.com/kenazczx/sc2002/compare/stage-2..stage-3
 
 This range also contains the input-validation fixes committed after the `stage-2` tag
 (`CommandParser`, `RestaurantRush` and `Customer`); they are listed with the changes.
@@ -219,7 +219,7 @@ Changed files:
 | `src/entity/MenuItem.java` | +11 / -17 | Became abstract, because a combo works out its price and preparation units from its parts instead of storing them; the stored version moved to `SingleDish`. `getName()`, `getPriceCents()` and `getPrepUnits()` kept their signatures, so `Order` and the rest of the game did not change. |
 | `src/entity/Menu.java` | +19 / -3 | Gained `itemsFor(Appetite)`, so the combo rule lives with the menu. `mostDemandingItem()` did not change; on the Stage 3 menu it returns Burger + Pasta. |
 | `src/boundary/ScriptedInput.java` | +18 / -2 | Answers the Happy Hour question from a `y` or `n` line in the script |
-| `src/entity/Customer.java` | +16 / -3 | Gained the `appetite` field and constructor parameter, and `chooseFrom` asks `menu.itemsFor(appetite)`. Fix after `stage-2`: a negative taste index or an empty menu is refused. |
+| `src/entity/Customer.java` | +23 / -3 | Gained the `appetite` field and constructor parameter, and `chooseFrom` asks `menu.itemsFor(appetite)`. Gained `recover(int)`, which Happy Hour's goodwill uses to raise a waiting customer's satisfaction (capped at 100). Fix after `stage-2`: a negative taste index or an empty menu is refused. |
 | `src/control/ArrivalSchedule.java` | +13 / -7 | Draws each customer's appetite from the seeded `Random`, after its taste index |
 | `src/entity/Restaurant.java` | +9 / -1 | Holds the Host and starts its turn with the other staff |
 | `src/control/OrderMgr.java` | +8 / -5 | Applies the promotion after the customer's own discount, the order Section 4.3 sets |
