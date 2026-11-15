@@ -109,8 +109,8 @@ least 60 over the customers who paid.
   is the number of items in it. A Critic ignores both taste index and appetite and orders the item with the most preparation units. If there is a tie, the more expensive one is selected, which on this menu is Burger + Pasta.
 * **Happy Hour.** Can be switched on once per game, at the start of a turn, and lasts that
   turn and the next. The start of each turn shows its remaining duration. An order taken
-  while it runs costs 20% less, applied after the VIP's 10%, and the price is fixed when
-  the order is taken. At the start of each active turn, every customer still waiting for a
+  while it runs costs 20% less, where the price is fixed when
+  the order is taken. For VIP customers, apply the 10% VIP discount first, then apply the 20% Happy Hour discount to the reduced price. At the start of each active turn, every customer still waiting for a
   table or for food recovers 15 satisfaction, up to 100.
 
 Seed 42 is the default because it reproduces both worked examples in Section 4.3 of the
