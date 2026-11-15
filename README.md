@@ -101,11 +101,11 @@ least 60 over the customers who paid.
   turn. The Waiter can still seat customers too.
 * **Combo meals.** A combo is two menu items sold together: its price is 90% of their
   combined price, rounded to the nearest cent, and its preparation units are their sum.
-* **How a customer chooses (our documented rule).** The manager never chooses. Each
-  customer gets a taste index and an appetite from a `java.util.Random` seeded with the
-  game seed, so a seed always gives the same six orders. Each arrival has a one in three
-  chance of a large appetite. A large appetite chooses among the combos and a small one
-  among the single dishes, taking item number `tasteIndex mod n` of that group, where `n`
+* **How a customer chooses (our documented rule).** Each customer gets a taste index and
+  an appetite from a `java.util.Random` seeded with the
+  game seed, so a seed always gives the same six orders. Each customer has a one in three
+  chance of a large appetite. A customer with a large appetite chooses among the combos and a customer with a small one
+  chooses among the single dishes, taking item number `tasteIndex mod n` of that group, where `n`
   is the number of items in it. A Critic ignores both and orders the most demanding item:
   the most preparation units, the dearer one on a tie, which on this menu is Burger + Pasta.
 * **Happy Hour.** Can be switched on once per game, at the start of a turn, and lasts that
