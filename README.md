@@ -144,7 +144,7 @@ java -cp out app.RestaurantRush --script runs/defeat.txt             # DEFEAT:  
 | VIP discount, then Happy Hour (Section 4.3) | `tools.RuleCheck`, and `runs/victory.txt` turn 10 | $15.00, then $13.50, then $10.80 |
 | Happy Hour lasts two turns and shows its duration | `runs/victory.txt` turns 10 to 12 | `Promotion: Happy Hour, 2 turn(s) remaining`, then `1 turn(s) remaining`, then `none` |
 | A price is fixed when the order is taken | `runs/victory.txt` | C3's Burger, ordered on turn 8 for $15.00, is paid on turn 11 while Happy Hour runs and still costs $15.00 |
-| No illegal state is reachable | `tools.FuzzRun 4000`: random legal play | 4000 games, no exception, and no task the game offered was then refused |
+| Random legal-play testing found no exceptions or rejected legal commands in 4,000 games | `tools.FuzzRun 4000`: random legal play | 4000 games, no exception, and no task the game offered was then refused |
 | An illegal choice costs nothing | type `xyz`, `seat 9`, `wait 1` or `seat 0` at turn 1 | refused with a reason, and the same staff member is asked again |
 | A bad `--seed` is reported | `--seed` with no number, or `--seed abc` | a message, and the game does not start |
 | Rule constants | `tools.RuleCheck` | 31 checks, 0 failures |
