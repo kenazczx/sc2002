@@ -92,7 +92,7 @@ least 60 over the customers who paid.
 | --- | --- | --- | --- |
 | Regular | 8 | full price | - |
 | VIP | 5 | 10% off | - |
-| Critic | 12 | full price | always orders the most demanding item; the satisfaction recorded at payment swings by 10 points, up if the Critic was served within 3 turns of arriving and down otherwise |
+| Critic | 12 | full price | always orders the most demanding item; the satisfaction recorded at payment receives a +10 or −10 adjustment, capped between 0 and 100, up if the Critic was served within 3 turns of arriving and down otherwise |
 
 ### Stage 3 rules
 
