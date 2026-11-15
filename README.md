@@ -65,6 +65,13 @@ Customer identifiers and order identifiers are numbered independently: orders ar
 numbered in the order they are taken, so if a customer's order is never taken, later
 order numbers do not line up with customer numbers. The floor listing shows both.
 
+### Explanations for new players
+
+* **Preparation units:** one unit consumes the Chef’s action for one turn. A dish completed this turn can be served next turn at the earliest.
+* **Payment timeline:** a customer served on turn `t` becomes ready to pay on `t + 1` and can pay on `t + 2` at the earliest.
+* **Victory timing:** the game always completes all 18 turns, even if the targets are reached earlier.
+* **Average satisfaction:** each customer only has their satisfaction value recorded at payment, which contributes to this average. `N/A` will be displayed before the first payment.
+
 ## The base setting
 
 18 turns and 2 tables. Arrivals at the start of turns 1, 4, 7, 10, 13 and 16, in the line-up
