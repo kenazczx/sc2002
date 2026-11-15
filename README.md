@@ -6,7 +6,7 @@ limited, the manager decides which customers and orders come first.
 
 **Repository:** https://github.com/kenazczx/sc2002
 
-This tag (`stage-3`) is the final version, it includes everything in Stages 1 and 2, plus the Host,
+This tag (`stage-3`) includes everything in Stages 1 and 2, plus the Host,
 combo meals and Happy Hour. Each stage is a tagged, runnable commit:
 
 | Tag | Adds | Run it |
