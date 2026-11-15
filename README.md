@@ -269,7 +269,7 @@ Youtube URL: https://www.youtube.com/watch?v=0MOWFbbjKOU
 | # | Segment | Timestamp | Speaker |
 | --- | --- | --- | --- |
 | 1 | The game launching from the submitted project | `00:40` | Chan Zhao Xian |
-| 2 | Meaningful manager choices, including a decision where staff are constrained | `01:05` (Turn 1), `02:10` Turn 4 decision)| Chan Zhao Xian |
+| 2 | Meaningful manager choices, including a decision where staff are constrained | `01:05` (Turn 1), `02:10` (Turn 4 decision)| Chan Zhao Xian |
 | 3 | A dish going READY → SERVED → payment | `01:55` (READY), `02:55` (Served and paid) | Chan Zhao Xian |
 | 4 | A VIP or Critic behaviour | `03:50` | Dakshinamoorthi Thiyageswaran |
 | 5 | A Stage 3 feature | `04:50` | Dakshinamoorthi Thiyageswaran |
