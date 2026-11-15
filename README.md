@@ -264,6 +264,8 @@ diagrams.net), and the `.svg` files are scalable copies.
 
 ## Video timestamps
 
+Youtube URL: https://www.youtube.com/watch?v=0MOWFbbjKOU
+
 | # | Segment | Timestamp | Speaker |
 | --- | --- | --- | --- |
 | 1 | The game launching from the submitted project | `00:00` | |
