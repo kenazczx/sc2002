@@ -88,7 +88,7 @@ least 60 over the customers who paid.
 | Salad + Pasta | $24.30 | 3 |
 | Burger + Pasta | $29.70 | 3 |
 
-| Customer | Satisfaction lost at each turn end while awaiting a table or food | Bill | Special behaviour |
+| Customer | Satisfaction lost at each turn end while awaiting a table or food | Bill (before Happy Hour discounts) | Special behaviour |
 | --- | --- | --- | --- |
 | Regular | 8 | full price | - |
 | VIP | 5 | 10% off | - |
