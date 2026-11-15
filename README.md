@@ -59,7 +59,7 @@ wait | seat <customerId> | order <customerId> | serve <orderId> | prep <orderId>
 
 An illegal command is explained and the same staff member is asked again, without the
 staff task being used up. A staff member whose only legal task is to wait is not asked
-at all. The Cashier takes the customer who has been ready to pay the longest.
+at all. The Cashier automatically collects payment from the eligible customer who has been ready to pay the longest.
 
 Customer identifiers and order identifiers are numbered independently: orders are
 numbered in the order they are taken, so if a customer's order is never taken, later
