@@ -115,13 +115,6 @@ public abstract class Customer {
         }
     }
 
-    public void recover(int points) {
-        satisfaction += points;
-        if (satisfaction > MAX_SATISFACTION) {
-            satisfaction = MAX_SATISFACTION;
-        }
-    }
-
     public boolean isAwaitingService() {
         return state == CustomerState.WAITING
                 || state == CustomerState.SEATED
