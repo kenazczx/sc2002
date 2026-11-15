@@ -9,7 +9,7 @@ limited, the manager decides which customers and orders come first.
 This tag (`stage-3`) includes everything in Stages 1 and 2, plus the Host,
 combo meals and Happy Hour. Each stage is a tagged, runnable commit:
 
-| Tag | Adds | Run it |
+| Tag | Adds | Select this version |
 | --- | --- | --- |
 | `stage-1` | Regular customers, menu, Waiter, Chef, Cashier, full turn sequence, both endings | `git checkout stage-1` |
 | `stage-2` | VIP and Critic customers | `git checkout stage-2` |
